@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +7,14 @@ using System.Windows.Forms;
 
 namespace vierGewinnt
 {
-    public partial class Form1 : Form
+    class VGLabel:Label 
     {
-        public Form1()
+        private int row;
+        private int column;
+        public VGLabel(int row, int column):base()
         {
-            InitializeComponent();
+            this.row = row;
+            this.column = column;
         }
     }
 }
