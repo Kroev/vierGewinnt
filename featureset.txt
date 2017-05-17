@@ -1,0 +1,15 @@
+===Must Have===
+-Multiplayer
+	-keine KI
+	-zwei Spieler
+	-local auf einem computer
+	-Spiel "vier gewinnt" an sich durchfürbar
+
+-basic gui (gem. GUI Entwurf)
+-spielendeerkennung mit Gewinnerermittlung
+-Spielfeld:
+	-7x6 nicht änderbar
+	-Farben rot & gelb nicht änderbar
+	-background colour blau siehe google images
+	-farben und Spielernamen nicht wählbar
+

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Zeichnung.svg"
+   inkscape:export-filename="C:\Users\kevin.seidel\Documents\BS\BSC#\vierGewinnt\GUIEntwurf.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="338.99683"
+     inkscape:cy="779.76987"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#0000be;fill-opacity:1;stroke:none"
+       id="rect4140"
+       width="598.01031"
+       height="455.57883"
+       x="96.974648"
+       y="49.280724" />
+    <ellipse
+       style="fill:#ffff00;fill-opacity:1;stroke:none"
+       id="path4142"
+       cx="656.59912"
+       cy="149.79089"
+       rx="21.213203"
+       ry="21.718279" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4144"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:10px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion4146"><rect
+           id="rect4148"
+           width="84.852814"
+           height="19.192898"
+           x="605.08136"
+           y="103.82896" /></flowRegion><flowPara
+         id="flowPara4150"></flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="557.60419"
+       y="115.95079"
+       id="text4152"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4154"
+         x="557.60419"
+         y="115.95079">aktuelller Spieler</tspan></text>
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1"
+       cx="129.29951"
+       cy="158.3772"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-9"
+       cx="130.30969"
+       cy="215.9559"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-3"
+       cx="130.30968"
+       cy="271.51428"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-8"
+       cx="130.30968"
+       cy="328.08282"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-35"
+       cx="129.29953"
+       cy="383.6412"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-1"
+       cx="132.33"
+       cy="443.2402"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-6"
+       cx="192.93913"
+       cy="441.21991"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-15"
+       cx="259.60922"
+       cy="445.26053"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-0"
+       cx="325.2691"
+       cy="445.26053"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-13"
+       cx="379.81735"
+       cy="447.28082"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-03"
+       cx="438.40619"
+       cy="449.30112"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-39"
+       cx="487.90369"
+       cy="446.27069"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-82"
+       cx="435.37573"
+       cy="389.70215"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-2"
+       cx="374.7666"
+       cy="340.20465"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-02"
+       cx="322.23865"
+       cy="280.60565"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-01"
+       cx="265.6701"
+       cy="219.99651"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-07"
+       cx="201.02036"
+       cy="157.36705"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-073"
+       cx="489.92398"
+       cy="397.78336"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-95"
+       cx="490.93414"
+       cy="331.11328"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-4"
+       cx="485.88336"
+       cy="270.50412"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-21"
+       cx="480.83261"
+       cy="202.82391"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="path4142-1-92"
+       cx="482.85291"
+       cy="149.28583"
+       rx="21.213203"
+       ry="21.718279" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+       id="rect4306"
+       width="38.385796"
+       height="20.203051"
+       x="106.06602"
+       y="92.717285" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+       id="rect4306-2"
+       width="38.385796"
+       height="20.203051"
+       x="175.76656"
+       y="92.717285" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+       id="rect4306-29"
+       width="38.385796"
+       height="20.203051"
+       x="243.44676"
+       y="93.72744" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+       id="rect4306-3"
+       width="38.385796"
+       height="20.203051"
+       x="309.10669"
+       y="96.757896" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+       id="rect4306-6"
+       width="38.385796"
+       height="20.203051"
+       x="377.79703"
+       y="93.72744" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+       id="rect4306-4"
+       width="38.385796"
+       height="20.203051"
+       x="425.27423"
+       y="89.686829" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none"
+       id="rect4306-38"
+       width="38.385796"
+       height="20.203051"
+       x="470.73108"
+       y="90.696983" />
+    <ellipse
+       style="fill:#ffff00;fill-opacity:1;stroke:none"
+       id="path4142-5"
+       cx="555.58386"
+       cy="228.07773"
+       rx="21.213203"
+       ry="21.718279" />
+    <ellipse
+       style="fill:#ff2a2a;fill-opacity:1;stroke:none"
+       id="path4142-3"
+       cx="557.60419"
+       cy="286.66656"
+       rx="21.213203"
+       ry="21.718279" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="586.57587"
+       y="232.26718"
+       id="text4152-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4154-0"
+         x="586.57587"
+         y="232.26718">Spielername</tspan><tspan
+         sodipodi:role="line"
+         x="586.57587"
+         y="251.01718"
+         id="tspan4394" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="584.18469"
+       y="288.83572"
+       id="text4152-7-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4154-0-2"
+         x="584.18469"
+         y="288.83572">Spielername</tspan><tspan
+         sodipodi:role="line"
+         x="584.18469"
+         y="307.58572"
+         id="tspan4394-9" /></text>
+    <path
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 521.23871,52.311185 c 3.03046,452.548345 2.02031,453.558495 2.02031,453.558495"
+       id="path4417"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
