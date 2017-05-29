@@ -8,6 +8,11 @@ namespace vierGewinnt
 {
     class Spielsteuerung
     {
-        
+        private Spielfeld spielfeld;
+
+        public Spielsteuerung (Spielfeld spielfeld)
+        {
+            this.spielfeld = spielfeld;
+        }
     }
 }
