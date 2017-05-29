@@ -71,9 +71,6 @@ namespace vierGewinnt
 
 
                     }
-                    /*Label l1 = new Label();
-                    l1.Text = "label"+x+y; l1.AutoSize = true; l1.Anchor = AnchorStyles.Right; l1.Name = "label";
-                    table.Controls.Add(l1, 0, 0); //table.Controls.Add(l2, 0, 1);*/
                 } 
             } 
         }
