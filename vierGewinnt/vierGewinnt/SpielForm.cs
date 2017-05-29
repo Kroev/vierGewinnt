@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,22 +13,69 @@ namespace vierGewinnt
 {
     public partial class SpielForm : Form
     {
+        
         public SpielForm()
         {
+            this.table = new System.Windows.Forms.TableLayoutPanel();
+
             InitializeComponent();
+
+            // 
+            // table
+            // 
+            this.table.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            //Spalten
+            this.table.ColumnCount = 7;
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.Location = new System.Drawing.Point(1, 1);
+            this.table.Name = "table";
+            //Zeilen
+            this.table.RowCount = 6;
+            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.table.Size = new System.Drawing.Size(600, 413);
+            this.table.TabIndex = 0;
+
+
             // label1
             // 
-            Label label1 = new System.Windows.Forms.Label();
-            label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(79, 68);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
-            this.table.Controls.Add(label1, 0, 0);
+            for (int x = 0; x < 7; x++)
+            {
+                for (int y = 0; y < 6; y++)
+                {
+                    {
+                       Label label = new System.Windows.Forms.Label();
+
+
+                        label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+                        label.AutoSize = true;
+                        label.Location = new System.Drawing.Point(3, 0);
+
+                        label.Name = "label";
+                        label.Size = new System.Drawing.Size(79, 68);
+                        label.TabIndex = 0;
+                        label.Text = "label" + y + x;
+                        this.table.Controls.Add(label, x, y);
+
+
+                    }
+                    /*Label l1 = new Label();
+                    l1.Text = "label"+x+y; l1.AutoSize = true; l1.Anchor = AnchorStyles.Right; l1.Name = "label";
+                    table.Controls.Add(l1, 0, 0); //table.Controls.Add(l2, 0, 1);*/
+                } 
+            } 
         }
     }
 }
