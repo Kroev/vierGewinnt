@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['feldersetzen',['felderSetzen',['../classvier_gewinnt_1_1_spielfeld.html#a4a93c4066da0203c24c36aff41d8fb1a',1,'vierGewinnt::Spielfeld']]]
+  ['feldsetzen',['feldSetzen',['../classvier_gewinnt_1_1_spielfeld.html#a11276c2a9eb2dfb2580343f4e7c9744a',1,'vierGewinnt::Spielfeld']]]
 ];

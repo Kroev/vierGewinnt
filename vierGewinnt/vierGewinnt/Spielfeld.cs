@@ -10,6 +10,14 @@ namespace vierGewinnt
     {
         private int[,] felder;
 
+        /******** Coordinate System **************
+         * 0|0 1|0   ...  width-1|0
+         * 0|1    .              .
+         *  .          .         .
+         *  .              .     .
+         * 0|height-1 ... width-1|height-1
+         * ***************************************/
+
         /**
          *Erzeugt ein neues Spielfeld mit der gewünschten Höhe und Breite.
          * 
@@ -17,7 +25,7 @@ namespace vierGewinnt
          * 
          * \param width Breite des Sielfeldes
          */
-        Spielfeld(int height, int width)
+        public Spielfeld(int height, int width)
         {
             felder = new int [height, width];
 
@@ -63,7 +71,7 @@ namespace vierGewinnt
          * \return  0       Wersetzung ist richtig verlaufen
          * \return  -1      Koordinaten sind außerhalb des Spielfeldes
         */
-        public int felderSetzen(int x, int y, int wert)
+        private int feldSetzen(int x, int y, int wert)
         {
             if(this.testCoordinates(x,y)== false)
             {
@@ -73,6 +81,55 @@ namespace vierGewinnt
             {
                 felder[x, y] = wert;
                 return 0;
+            }
+        }
+
+        /**
+         * Drops a token into the grid so that it takes the first free slot from bottom up.
+         * Does this only if the column has at least one free slot of course.
+         * 
+         * \param column The column where the token is to be inserted
+         * \param wert the value associated with the player who inserted this token
+         * 
+         * \return -1 if column or coordinate is out of range
+         * \return -2 if column is full
+         */
+        public int feldSetzen(int column, int wert)
+        {
+            int x = column;
+            int y = 0;
+
+            //check if column is full:
+            if ( this.testCoordinates(x, y) && (this.getByCoordinates(x,y) == 0))
+            {
+                //column has at least one field left, determine the row
+                //for the field to be set:
+                while ( this.testCoordinates(x, (y)) && (this.getByCoordinates(x, (y + 1)) == 0))
+                {
+                    y++;
+                }
+
+                if ( this.feldSetzen(x, y, wert) == 0 )
+                {
+                    return 0;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                //column is full or coordinates out of range!
+                //double check :( 
+                if ( this.testCoordinates(x,y) )
+                {
+                    return -2; //full
+                }
+                else
+                {
+                    return -1; //was fault of column out of range
+                }
             }
         }
 

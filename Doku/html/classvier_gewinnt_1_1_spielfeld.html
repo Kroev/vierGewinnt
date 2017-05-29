@@ -89,29 +89,62 @@ $(document).ready(function(){initNavTree('classvier_gewinnt_1_1_spielfeld.html',
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a1a02228a882765396d1a196a6d80a274"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvier_gewinnt_1_1_spielfeld.html#a1a02228a882765396d1a196a6d80a274">Spielfeld</a> (int height, int width)</td></tr>
+<tr class="separator:a1a02228a882765396d1a196a6d80a274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6f626276b7d78fba5feb36db224cf75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvier_gewinnt_1_1_spielfeld.html#ac6f626276b7d78fba5feb36db224cf75">getByCoordinates</a> (int x, int y)</td></tr>
 <tr class="separator:ac6f626276b7d78fba5feb36db224cf75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a93c4066da0203c24c36aff41d8fb1a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvier_gewinnt_1_1_spielfeld.html#a4a93c4066da0203c24c36aff41d8fb1a">felderSetzen</a> (int x, int y, int wert)</td></tr>
-<tr class="separator:a4a93c4066da0203c24c36aff41d8fb1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11276c2a9eb2dfb2580343f4e7c9744a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvier_gewinnt_1_1_spielfeld.html#a11276c2a9eb2dfb2580343f4e7c9744a">feldSetzen</a> (int column, int wert)</td></tr>
+<tr class="separator:a11276c2a9eb2dfb2580343f4e7c9744a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4a93c4066da0203c24c36aff41d8fb1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a93c4066da0203c24c36aff41d8fb1a">&#9670;&nbsp;</a></span>felderSetzen()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1a02228a882765396d1a196a6d80a274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a02228a882765396d1a196a6d80a274">&#9670;&nbsp;</a></span>Spielfeld()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int vierGewinnt.Spielfeld.felderSetzen </td>
+          <td class="memname">vierGewinnt.Spielfeld.Spielfeld </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramname"><em>height</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
+          <td class="paramname"><em>width</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Erzeugt ein neues <a class="el" href="classvier_gewinnt_1_1_spielfeld.html">Spielfeld</a> mit der gewünschten Höhe und Breite.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">height</td><td>Höhe für das <a class="el" href="classvier_gewinnt_1_1_spielfeld.html">Spielfeld</a></td></tr>
+    <tr><td class="paramname">width</td><td>Breite des Sielfeldes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a11276c2a9eb2dfb2580343f4e7c9744a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11276c2a9eb2dfb2580343f4e7c9744a">&#9670;&nbsp;</a></span>feldSetzen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int vierGewinnt.Spielfeld.feldSetzen </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>column</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -126,18 +159,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Setzt den Wert des zugehörigen Label's fest</p>
+<p>Drops a token into the grid so that it takes the first free slot from bottom up. Does this only if the column has at least one free slot of course.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Zeile des <a class="el" href="classvier_gewinnt_1_1_v_g_label.html">VGLabel</a>'s </td></tr>
-    <tr><td class="paramname">y</td><td>Spalte des <a class="el" href="classvier_gewinnt_1_1_v_g_label.html">VGLabel</a>'s </td></tr>
-    <tr><td class="paramname">wert</td><td>Wert des Labels</td></tr>
+    <tr><td class="paramname">column</td><td>The column where the token is to be inserted </td></tr>
+    <tr><td class="paramname">wert</td><td>the value associated with the player who inserted this token</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 Wersetzung ist richtig verlaufen </dd>
+<dl class="section return"><dt>Returns</dt><dd>-1 if column or coordinate is out of range </dd>
 <dd>
--1 Koordinaten sind außerhalb des Spielfeldes </dd></dl>
+-2 if column is full </dd></dl>
 
 </div>
 </div>
