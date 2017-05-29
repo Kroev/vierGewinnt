@@ -10,13 +10,20 @@ namespace vierGewinnt
     {
         private int[,] felder;
 
+        /**
+         *Erzeugt ein neues Spielfeld mit der gewünschten Höhe und Breite.
+         * 
+         * \param height Höhe für das Spielfeld
+         * 
+         * \param width Breite des Sielfeldes
+         */
         Spielfeld(int height, int width)
         {
             felder = new int [height, width];
 
-            for (int x = 0; x < height; x++)
+            for (int x = 0; x < width; x++)
             {
-                for(int y = 0; y < width; y++)
+                for(int y = 0; y < height; y++)
                 {
                     felder[x, y] = 0;
                 }
