@@ -23,7 +23,7 @@ namespace vierGewinnt
             }
         }
 
-        /* Gibt den Wert des jeweiligen Labels zurück
+        /** Gibt den Wert des jeweiligen Labels zurück
          * 
          * \param   x       Zeile des VGLabel's
          * \param   y       Spalte des VGLabel's
@@ -47,7 +47,7 @@ namespace vierGewinnt
             }
         }
 
-        /* Setzt den Wert des zugehörigen Label's fest
+        /** Setzt den Wert des zugehörigen Label's fest
          * 
          * \param   x       Zeile des VGLabel's
          * \param   y       Spalte des VGLabel's
@@ -69,6 +69,15 @@ namespace vierGewinnt
             }
         }
 
+        /**
+         *An internal function only, used for checking if given coordinates are within range
+         * 
+         * \param x x-coordinate
+         * \param y y-coordinate
+         * 
+         * \return true if within range
+         * \return false if out of range
+         */
         private bool testCoordinates(int x, int y)
         {
             if (x > (felder.GetLength(0) - 1))
