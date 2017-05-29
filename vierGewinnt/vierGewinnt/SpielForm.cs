@@ -36,7 +36,8 @@ namespace vierGewinnt
             this.table.Location = new System.Drawing.Point(1, 1);
             this.table.Name = "table";
             //Zeilen
-            this.table.RowCount = 6;
+            this.table.RowCount = 7;
+            this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -46,12 +47,20 @@ namespace vierGewinnt
             this.table.Size = new System.Drawing.Size(600, 413);
             this.table.TabIndex = 0;
 
+            //Buttons
+            int x = 0;
+            for (;x<7;x++)
+            {
+                VGButton btn = new VGButton(x);
+                btn.TabIndex = 0;
+                this.table.Controls.Add(btn, x,0);
+            }
 
             // label1
             // 
-            for (int x = 0; x < 7; x++)
+            for (x = 0; x < 7; x++)
             {
-                for (int y = 0; y < 6; y++)
+                for (int y = 1; y < 7; y++)
                 {
                     {
                        Label label = new System.Windows.Forms.Label();
