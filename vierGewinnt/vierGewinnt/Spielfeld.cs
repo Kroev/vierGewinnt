@@ -8,11 +8,12 @@ namespace vierGewinnt
 {
     class Spielfeld
     {
-        private int[,] Felder;
+        private VGLabel[,] felder;
 
         Spielfeld(int height, int width)
         {
-            
+            this.felder = new VGLabel[height, width];
         }
+
     }
 }
