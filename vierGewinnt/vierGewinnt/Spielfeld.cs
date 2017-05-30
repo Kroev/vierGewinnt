@@ -159,6 +159,9 @@ namespace vierGewinnt
             }
         }
 
+        /**
+         * Gibt den Inhalt des Spielfeldes einfach auf der Konsole aus
+         */
         public int print()
         {
             for(int x = 0; x < felder.GetLength(0); x++)
