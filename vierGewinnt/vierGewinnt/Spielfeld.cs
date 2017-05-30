@@ -91,6 +91,7 @@ namespace vierGewinnt
          * \param column The column where the token is to be inserted
          * \param wert the value associated with the player who inserted this token
          * 
+         * \return y-coordinate of the new token
          * \return -1 if column or coordinate is out of range
          * \return -2 if column is full
          */
@@ -111,7 +112,7 @@ namespace vierGewinnt
 
                 if ( this.feldSetzen(x, y, wert) == 0 )
                 {
-                    return 0;
+                    return y;
                 }
                 else
                 {
@@ -156,6 +157,20 @@ namespace vierGewinnt
             {
                 return true;
             }
+        }
+
+        public int Print(int height, int width)
+        {
+            for(int x = 0; x < height; x++)
+            {
+                for (int y=0; y<width; y++)
+                {
+                    Console.Write(felder[x, y]);
+                }
+                Console.WriteLine();
+            }
+
+            return 0;
         }
     }
 }
