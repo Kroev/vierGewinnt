@@ -25,7 +25,7 @@ namespace vierGewinnt
             // 
             this.table.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             //Spalten
-            this.table.ColumnCount = 7;
+            this.table.ColumnCount = 9;
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
@@ -33,6 +33,8 @@ namespace vierGewinnt
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.28572F));
             this.table.Location = new System.Drawing.Point(1, 1);
             this.table.Name = "table";
             //Zeilen
@@ -44,7 +46,7 @@ namespace vierGewinnt
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.table.Size = new System.Drawing.Size(600, 413);
+            this.table.Size = new System.Drawing.Size(900, 413);
             this.table.TabIndex = 0;
             this.Controls.Add(this.table);
 
@@ -59,14 +61,14 @@ namespace vierGewinnt
 
             // label1
             // 
-            for (x = 0; x < 7; x++)
+            for (x = 0; x < 9; x++)
             {
                 for (int y = 1; y < 7; y++)
                 {
                     {
                        Label label = new System.Windows.Forms.Label();
 
-                        Image imageKreis = Image.FromFile("Kreis.png");
+                        Image imageKreis = Image.FromFile("..\\..\\..\\img\\Kreis.png");
                         label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
