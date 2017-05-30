@@ -169,7 +169,8 @@ namespace vierGewinnt
                 for (int y=0; y<felder.GetLength(1); y++)
                 {
                     Console.Write(felder[x, y]);
-                } 
+                }
+                Console.WriteLine();
             }
             Console.WriteLine();
 
