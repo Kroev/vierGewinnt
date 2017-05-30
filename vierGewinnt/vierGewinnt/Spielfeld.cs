@@ -29,9 +29,9 @@ namespace vierGewinnt
         {
             felder = new int [width, height];
 
-            for (int x = 0; x < width; x++)
+            for (int y = 0; y < width; y++)
             {
-                for(int y = 0; y < height; y++)
+                for(int x = 0; x < height; x++)
                 {
                     felder[x, y] = 0;
                 }
