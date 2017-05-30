@@ -37,7 +37,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1600, 1600);
-            this.Controls.Add(this.table);
+            
             this.Name = "SpielForm";
             this.Text = "vierGewinnt";
             this.ResumeLayout(false);

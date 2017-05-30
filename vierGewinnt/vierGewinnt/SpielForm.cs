@@ -46,6 +46,7 @@ namespace vierGewinnt
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.table.Size = new System.Drawing.Size(600, 413);
             this.table.TabIndex = 0;
+            this.Controls.Add(this.table);
 
             //Buttons
             int x = 0;
