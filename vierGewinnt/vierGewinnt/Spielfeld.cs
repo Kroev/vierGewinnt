@@ -164,9 +164,9 @@ namespace vierGewinnt
          */
         public int print()
         {
-            for(int x = 0; x < felder.GetLength(0); x++)
+            for(int y = 0; y < felder.GetLength(1); y++)
             {
-                for (int y=0; y<felder.GetLength(1); y++)
+                for (int x = 0; x < felder.GetLength(0); x++)
                 {
                     Console.Write(felder[x, y]);
                 }
