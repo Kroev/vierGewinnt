@@ -66,7 +66,7 @@ namespace vierGewinnt
                     {
                        Label label = new System.Windows.Forms.Label();
 
-
+                        Image imageKreis = Image.FromFile("Kreis.png");
                         label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -74,10 +74,13 @@ namespace vierGewinnt
                         label.Location = new System.Drawing.Point(3, 0);
 
                         label.Name = "label";
-                        label.Size = new System.Drawing.Size(79, 68);
+                        label.Size = new Size(imageKreis.Width, imageKreis.Height);
+                        label.Image = imageKreis;
+                        //label.Size = new System.Drawing.Size(79, 68);
                         label.TabIndex = 0;
                         label.Text = "label" + y + x;
                         this.table.Controls.Add(label, x, y);
+                        
 
 
                     }
