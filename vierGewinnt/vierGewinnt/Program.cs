@@ -14,6 +14,8 @@ namespace vierGewinnt
         [STAThread]
         static void Main()
         {
+            Spielfeld spielfeld = new Spielfeld(5, 3);
+            spielfeld.print();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SpielForm());

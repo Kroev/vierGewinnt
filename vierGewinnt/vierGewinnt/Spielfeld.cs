@@ -27,7 +27,7 @@ namespace vierGewinnt
          */
         public Spielfeld(int height, int width)
         {
-            felder = new int [height, width];
+            felder = new int [width, height];
 
             for (int x = 0; x < width; x++)
             {
@@ -159,11 +159,11 @@ namespace vierGewinnt
             }
         }
 
-        public int Print(int height, int width)
+        public int print()
         {
-            for(int x = 0; x < height; x++)
+            for(int x = 0; x < felder.GetLength(0); x++)
             {
-                for (int y=0; y<width; y++)
+                for (int y=0; y<felder.GetLength(1); y++)
                 {
                     Console.Write(felder[x, y]);
                 }
