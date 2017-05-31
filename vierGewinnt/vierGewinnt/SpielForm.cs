@@ -14,12 +14,13 @@ namespace vierGewinnt
 
     public partial class SpielForm : Form
     {
-            private List<VGLabel> spielfeld;
-            public SpielForm()
+        private List<VGLabel> spielfeld;
+        private Spielsteuerung control;
+        public SpielForm()
         {
             this.spielfeld = new List<VGLabel>();
             this.table = new System.Windows.Forms.TableLayoutPanel();
-
+            this.control = new Spielsteuerung(7, 6);
             InitializeComponent();
 
             // 
@@ -85,7 +86,6 @@ namespace vierGewinnt
                         label.Size = new Size(imageKreis.Width, imageKreis.Height);
                         label.Image = imageKreis;
                         label.TabIndex = 0;
-                        label.Text = "label" + y + x;
                         this.table.Controls.Add(label, x, y);
                     }
                 } 
@@ -104,7 +104,6 @@ namespace vierGewinnt
             lblSpAkt.Size = new Size(imageKreis2.Width, imageKreis2.Height);
             lblSpAkt.Image = imageKreis2;
             lblSpAkt.TabIndex = 0;
-            lblSpAkt.Text = "label 72";
             this.table.Controls.Add(lblSpAkt, 7, 2);
 
             //Erzeugen des Labels des Symbols von Spieler 1
@@ -120,7 +119,6 @@ namespace vierGewinnt
             lblSp1.Size = new Size(imgKreisSp1.Width, imgKreisSp1.Height);
             lblSp1.Image = imgKreisSp1;
             lblSp1.TabIndex = 0;
-            lblSp1.Text = "label 72";
             this.table.Controls.Add(lblSp1, 7, 4);
 
             //Erzeugen des Labels des Symbols von Spieler 2
@@ -136,7 +134,6 @@ namespace vierGewinnt
             lblSp2.Size = new Size(imgKreisSp2.Width, imgKreisSp2.Height);
             lblSp2.Image = imgKreisSp2;
             lblSp2.TabIndex = 0;
-            lblSp2.Text = "label 72";
             this.table.Controls.Add(lblSp2, 7, 5);
 
             //Erzeugen des Labels mit dem Namen des aktuellen Spielers
