@@ -192,5 +192,13 @@ namespace vierGewinnt
                 return akt;
             }
         }
+
+        internal Spielfeld Spielfeld
+        {
+            get
+            {
+                return spielfeld;
+            }
+        }
     }
 }

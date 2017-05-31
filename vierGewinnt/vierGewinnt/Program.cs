@@ -37,12 +37,48 @@ namespace vierGewinnt
 
             //test horizontale gewinnermittlung
             Spielsteuerung control = new Spielsteuerung(7, 6);
-            for (int i = 1; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 control.spielzug(i);
+                control.spielzug(i);
             }
-            Console.Write("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+            control.Spielfeld.print();
+            Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
 
+            //vertikale gewinnermittlung
+            control = new Spielsteuerung(7, 6);
+            control.spielzug(0);
+            for(int j =0; j < 8; j++)
+            {
+                control.spielzug(1);
+                control.spielzug(2);
+            }
+            control.Spielfeld.print();
+            Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+
+            //diagonale 1 gewinnermittlung
+            control = new Spielsteuerung(7, 6);
+            for (int k = 0; k < 8; k++)
+            {
+                control.spielzug(k);
+                control.spielzug(k + 1);
+                control.spielzug(k + 2);
+                control.spielzug(k + 3);
+            }
+            control.Spielfeld.print();
+            Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+
+            //diagonale 2 gewinnermittlung
+            control = new Spielsteuerung(7, 6);
+            for (int k = 8; k >= 0; k--)
+            {
+                control.spielzug(k);
+                control.spielzug(k - 1);
+                control.spielzug(k - 2);
+                control.spielzug(k - 3);
+            }
+            control.Spielfeld.print();
+            Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
