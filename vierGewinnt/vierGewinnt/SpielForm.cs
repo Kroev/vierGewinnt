@@ -57,7 +57,9 @@ namespace vierGewinnt
                 VGButton btn = new VGButton(x);
                 btn.TabIndex = 0;
                 btn.BackColor = Color.Gray;
+                btn.Click += new System.EventHandler(this.btnClick);
                 this.table.Controls.Add(btn, x,0);
+                
             }
 
             // label1
@@ -191,6 +193,9 @@ namespace vierGewinnt
 
         }
 
-
+        private void btnClick(Object sender, EventArgs e)
+        {
+            
+        }
     }
 }
