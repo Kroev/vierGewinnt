@@ -185,7 +185,11 @@ namespace vierGewinnt
             lblSp2Name.Font = new Font(lblSp2Name.Font.FontFamily, 25);
             this.table.Controls.Add(lblSp2Name, 8, 5);
 
+
+            this.BackColor = Color.FromArgb(255,0,0,190);
+
         }
-            
+
+
     }
 }
