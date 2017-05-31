@@ -61,7 +61,7 @@ namespace vierGewinnt
 
             // label1
             // 
-            for (x = 0; x < 9; x++)
+            for (x = 0; x < 7; x++)
             {
                 for (int y = 1; y < 7; y++)
                 {
@@ -82,12 +82,59 @@ namespace vierGewinnt
                         label.TabIndex = 0;
                         label.Text = "label" + y + x;
                         this.table.Controls.Add(label, x, y);
-                        
-
-
                     }
                 } 
-            } 
+            }
+            Label lblSpAkt = new System.Windows.Forms.Label();
+
+            Image imageKreis2 = Image.FromFile("..\\..\\..\\img\\Kreis.png");
+            lblSpAkt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            lblSpAkt.AutoSize = true;
+            lblSpAkt.Location = new System.Drawing.Point(3, 0);
+
+            lblSpAkt.Name = "label";
+            lblSpAkt.Size = new Size(imageKreis2.Width, imageKreis2.Height);
+            lblSpAkt.Image = imageKreis2;
+            //label.Size = new System.Drawing.Size(79, 68);
+            lblSpAkt.TabIndex = 0;
+            lblSpAkt.Text = "label 72";
+            this.table.Controls.Add(lblSpAkt, 7, 2);
+
+            Label lblSp1 = new System.Windows.Forms.Label();
+
+            Image imgKreisSp1 = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
+            lblSp1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            lblSp1.AutoSize = true;
+            lblSp1.Location = new System.Drawing.Point(3, 0);
+
+            lblSp1.Name = "label";
+            lblSp1.Size = new Size(imgKreisSp1.Width, imgKreisSp1.Height);
+            lblSp1.Image = imgKreisSp1;
+            //label.Size = new System.Drawing.Size(79, 68);
+            lblSp1.TabIndex = 0;
+            lblSp1.Text = "label 72";
+            this.table.Controls.Add(lblSp1, 7, 4);
+
+            Label lblSp2 = new System.Windows.Forms.Label();
+
+            Image imgKreisSp2 = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
+            lblSp2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            lblSp2.AutoSize = true;
+            lblSp2.Location = new System.Drawing.Point(3, 0);
+
+            lblSp2.Name = "label";
+            lblSp2.Size = new Size(imgKreisSp2.Width, imgKreisSp2.Height);
+            lblSp2.Image = imgKreisSp2;
+            //label.Size = new System.Drawing.Size(79, 68);
+            lblSp2.TabIndex = 0;
+            lblSp2.Text = "label 72";
+            this.table.Controls.Add(lblSp2, 7, 5);
         }
     }
 }
