@@ -33,7 +33,7 @@ namespace vierGewinnt
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
-            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.28572F));
             this.table.Location = new System.Drawing.Point(1, 1);
             this.table.Name = "table";
@@ -85,6 +85,7 @@ namespace vierGewinnt
                     }
                 } 
             }
+            //Erzeugen des Symbols für aktuellen Spieler
             Label lblSpAkt = new System.Windows.Forms.Label();
 
             Image imageKreis2 = Image.FromFile("..\\..\\..\\img\\Kreis.png");
@@ -97,11 +98,11 @@ namespace vierGewinnt
             lblSpAkt.Name = "label";
             lblSpAkt.Size = new Size(imageKreis2.Width, imageKreis2.Height);
             lblSpAkt.Image = imageKreis2;
-            //label.Size = new System.Drawing.Size(79, 68);
             lblSpAkt.TabIndex = 0;
             lblSpAkt.Text = "label 72";
             this.table.Controls.Add(lblSpAkt, 7, 2);
 
+            //Erzeugen des Labels des Symbols von Spieler 1
             Label lblSp1 = new System.Windows.Forms.Label();
 
             Image imgKreisSp1 = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
@@ -110,15 +111,14 @@ namespace vierGewinnt
             | System.Windows.Forms.AnchorStyles.Right)));
             lblSp1.AutoSize = true;
             lblSp1.Location = new System.Drawing.Point(3, 0);
-
             lblSp1.Name = "label";
             lblSp1.Size = new Size(imgKreisSp1.Width, imgKreisSp1.Height);
             lblSp1.Image = imgKreisSp1;
-            //label.Size = new System.Drawing.Size(79, 68);
             lblSp1.TabIndex = 0;
             lblSp1.Text = "label 72";
             this.table.Controls.Add(lblSp1, 7, 4);
 
+            //Erzeugen des Labels des Symbols von Spieler 2
             Label lblSp2 = new System.Windows.Forms.Label();
 
             Image imgKreisSp2 = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
@@ -127,14 +127,65 @@ namespace vierGewinnt
             | System.Windows.Forms.AnchorStyles.Right)));
             lblSp2.AutoSize = true;
             lblSp2.Location = new System.Drawing.Point(3, 0);
-
             lblSp2.Name = "label";
             lblSp2.Size = new Size(imgKreisSp2.Width, imgKreisSp2.Height);
             lblSp2.Image = imgKreisSp2;
-            //label.Size = new System.Drawing.Size(79, 68);
             lblSp2.TabIndex = 0;
             lblSp2.Text = "label 72";
             this.table.Controls.Add(lblSp2, 7, 5);
+
+            //Erzeugen des Labels mit dem Namen des aktuellen Spielers
+
+            Label lblSpAktName = new System.Windows.Forms.Label();
+
+            lblSpAktName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            lblSpAktName.AutoSize = false;
+            lblSpAktName.TextAlign = ContentAlignment.MiddleLeft;
+            lblSpAktName.Location = new System.Drawing.Point(3, 0);
+            lblSpAktName.Name = "label";
+            lblSpAktName.Size = new System.Drawing.Size(79, 68);
+            lblSpAktName.TabIndex = 0;
+            lblSpAktName.Text = "aktueller Spieler";
+            lblSpAktName.Font = new Font(lblSpAktName.Font.FontFamily, 25);
+            this.table.Controls.Add(lblSpAktName, 8, 2);
+
+            //Erzeugen des Labels mit dem Namen von Spieler 1
+
+            Label lblSp1Name = new System.Windows.Forms.Label();
+
+            lblSp1Name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            lblSp1Name.AutoSize = false;
+            lblSp1Name.TextAlign = ContentAlignment.MiddleLeft;
+            lblSp1Name.Location = new System.Drawing.Point(3, 0);
+            lblSp1Name.Name = "label";
+            lblSp1Name.Size = new System.Drawing.Size(79, 68);
+            lblSp1Name.TabIndex = 0;
+            lblSp1Name.Text = "Spieler 1";
+            lblSp1Name.Font = new Font(lblSp1Name.Font.FontFamily, 25);
+            this.table.Controls.Add(lblSp1Name, 8, 4);
+
+            //Erzeugen des Labels mit dem Namen von Spieler 2
+
+            Label lblSp2Name = new System.Windows.Forms.Label();
+
+            lblSp2Name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            lblSp2Name.AutoSize = false;
+            lblSp2Name.TextAlign = ContentAlignment.MiddleLeft;
+            lblSp2Name.Location = new System.Drawing.Point(3, 0);
+            lblSp2Name.Name = "label";
+            lblSp2Name.Size = new System.Drawing.Size(79, 68);
+            lblSp2Name.TabIndex = 0;
+            lblSp2Name.Text = "Spieler 2";
+            lblSp2Name.Font = new Font(lblSp2Name.Font.FontFamily, 25);
+            this.table.Controls.Add(lblSp2Name, 8, 5);
+
         }
+            
     }
 }
