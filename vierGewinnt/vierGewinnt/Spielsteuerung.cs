@@ -163,7 +163,7 @@ namespace vierGewinnt
                     i++;
                 }
                 i = 1;
-                while ((this.spielfeld.getByCoordinates(x - i, y + i) == wert)
+                while ((this.spielfeld.getByCoordinates(x + i, y - i) == wert)
                     && streak < winningCondition)
                 {
                     streak++;

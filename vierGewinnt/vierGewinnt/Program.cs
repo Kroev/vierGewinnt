@@ -54,7 +54,7 @@ namespace vierGewinnt
                 control.spielzug(2);
             }
             control.Spielfeld.print();
-            Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+            Console.WriteLine("Spielende sollte jetzt auf 2 stehen: spielende = " + control.Spielende);
 
             //diagonale 1 gewinnermittlung
             control = new Spielsteuerung(7, 6);
@@ -70,7 +70,7 @@ namespace vierGewinnt
 
             //diagonale 2 gewinnermittlung
             control = new Spielsteuerung(7, 6);
-            for (int k = 8; k >= 0; k--)
+            for (int k = 6; k > -1; k--)
             {
                 control.spielzug(k);
                 control.spielzug(k - 1);
