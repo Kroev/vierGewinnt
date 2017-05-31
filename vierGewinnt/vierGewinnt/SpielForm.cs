@@ -11,11 +11,13 @@ using System.Windows.Forms;
 
 namespace vierGewinnt
 {
+
     public partial class SpielForm : Form
     {
-        
-        public SpielForm()
+            private List<VGLabel> spielfeld;
+            public SpielForm()
         {
+            this.spielfeld = new List<VGLabel>();
             this.table = new System.Windows.Forms.TableLayoutPanel();
 
             InitializeComponent();
@@ -69,7 +71,8 @@ namespace vierGewinnt
                 for (int y = 1; y < 7; y++)
                 {
                     {
-                       Label label = new System.Windows.Forms.Label();
+                       VGLabel label = new VGLabel(y-1,x);
+                        this.spielfeld.Add(label);
 
                         Image imageKreis = Image.FromFile("..\\..\\..\\img\\Kreis.png");
                         label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -81,7 +84,6 @@ namespace vierGewinnt
                         label.Name = "label";
                         label.Size = new Size(imageKreis.Width, imageKreis.Height);
                         label.Image = imageKreis;
-                        //label.Size = new System.Drawing.Size(79, 68);
                         label.TabIndex = 0;
                         label.Text = "label" + y + x;
                         this.table.Controls.Add(label, x, y);
