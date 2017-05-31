@@ -42,7 +42,7 @@ namespace vierGewinnt
         public int spielzug(int column)
         {
             int result = this.spielfeld.feldSetzen(column, this.akt);
-            if ( result > 0 )
+            if ( result >= 0 )
             {
                 int x = column;
                 int y = result;
@@ -73,7 +73,7 @@ namespace vierGewinnt
             if ( wert > 0 )
             {
                 int i = 1;
-                int horizontal = 0;
+                int horizontal = 1;
                 while ((this.spielfeld.getByCoordinates(x + i, y) == wert) 
                     && horizontal < winningCondition)
                 {
