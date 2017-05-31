@@ -51,6 +51,18 @@ namespace vierGewinnt
                 {
                     this.spielende = this.akt;
                 }
+                else
+                {
+                    //Spieler flicken
+                    if ( this.akt == 1 )
+                    {
+                        this.akt = 2;
+                    }
+                    else
+                    {
+                        this.akt = 1;
+                    }
+                }
             }
 
             return result;
@@ -72,22 +84,86 @@ namespace vierGewinnt
             int winningCondition = 4;
             if ( wert > 0 )
             {
+                //Horizontale
                 int i = 1;
-                int horizontal = 1;
+                int streak = 1;
                 while ((this.spielfeld.getByCoordinates(x + i, y) == wert) 
-                    && horizontal < winningCondition)
+                    && streak < winningCondition)
                 {
-                    horizontal++;
+                    streak++;
                     i++;
                 }
                 i = 1;
                 while ((this.spielfeld.getByCoordinates(x - i, y) == wert)
-                    && horizontal < winningCondition)
+                    && streak < winningCondition)
                 {
-                    horizontal++;
+                    streak++;
                     i++;
                 }
-                if (horizontal >= winningCondition)
+                if (streak >= winningCondition)
+                {
+                    return 1;
+                }
+
+                //Vertikale
+                i = 1;
+                streak = 1;
+                while ((this.spielfeld.getByCoordinates(x, y + i) == wert)
+                    && streak < winningCondition)
+                {
+                    streak++;
+                    i++;
+                }
+                i = 1;
+                while ((this.spielfeld.getByCoordinates(x, y - i) == wert)
+                    && streak < winningCondition)
+                {
+                    streak++;
+                    i++;
+                }
+                if (streak >= winningCondition)
+                {
+                    return 1;
+                }
+
+                //Diagonale1
+                i = 1;
+                streak = 1;
+                while ((this.spielfeld.getByCoordinates(x + i, y + i) == wert)
+                    && streak < winningCondition)
+                {
+                    streak++;
+                    i++;
+                }
+                i = 1;
+                while ((this.spielfeld.getByCoordinates(x - i, y - i) == wert)
+                    && streak < winningCondition)
+                {
+                    streak++;
+                    i++;
+                }
+                if (streak >= winningCondition)
+                {
+                    return 1;
+                }
+
+                //Diagonale2
+                i = 1;
+                streak = 1;
+                while ((this.spielfeld.getByCoordinates(x - i, y + i) == wert)
+                    && streak < winningCondition)
+                {
+                    streak++;
+                    i++;
+                }
+                i = 1;
+                while ((this.spielfeld.getByCoordinates(x - i, y + i) == wert)
+                    && streak < winningCondition)
+                {
+                    streak++;
+                    i++;
+                }
+                if (streak >= winningCondition)
                 {
                     return 1;
                 }
