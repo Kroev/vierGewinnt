@@ -56,6 +56,7 @@ namespace vierGewinnt
             {
                 VGButton btn = new VGButton(x);
                 btn.TabIndex = 0;
+                btn.BackColor = Color.Gray;
                 this.table.Controls.Add(btn, x,0);
             }
 
