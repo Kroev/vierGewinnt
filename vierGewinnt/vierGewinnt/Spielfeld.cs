@@ -145,11 +145,11 @@ namespace vierGewinnt
          */
         private bool testCoordinates(int x, int y)
         {
-            if (x > (felder.GetLength(0) - 1))
+            if ((x > (felder.GetLength(0) - 1))||(x<0))
             {
                 return false;
             }
-            else if (y > (felder.GetLength(1) - 1))
+            else if ((y > (felder.GetLength(1) - 1))||(y<0))
             {
                 return false;
             }
