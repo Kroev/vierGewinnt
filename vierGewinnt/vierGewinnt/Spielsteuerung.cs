@@ -100,5 +100,21 @@ namespace vierGewinnt
                 return wert;
             }
         }
+
+        public int Spielende
+        {
+            get
+            {
+                return spielende;
+            }
+        }
+
+        public int Akt
+        {
+            get
+            {
+                return akt;
+            }
+        }
     }
 }
