@@ -93,7 +93,17 @@ namespace vierGewinnt
             //Erzeugen des Symbols für aktuellen Spieler
             Label lblSpAkt = new System.Windows.Forms.Label();
 
-            Image imageKreis2 = Image.FromFile("..\\..\\..\\img\\Kreis.png");
+            //Image imageKreis2 = Image.FromFile("..\\..\\..\\img\\Kreis.png");
+            Image imageKreis2;
+            if (control.Akt == 1)
+            {
+                imageKreis2 = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
+            }
+            else
+            {
+                imageKreis2 = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
+            }
+               
             lblSpAkt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
