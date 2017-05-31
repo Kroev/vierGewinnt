@@ -35,6 +35,14 @@ namespace vierGewinnt
             int test = spielfeld.feldSetzen(0, 6);
             Console.WriteLine("trying to insert anotherone into column 0, if -2 -> OK: " + test);
 
+            //test horizontale gewinnermittlung
+            Spielsteuerung control = new Spielsteuerung(7, 6);
+            for (int i = 1; i < 5; i++)
+            {
+                control.spielzug(i);
+            }
+            Console.Write("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
