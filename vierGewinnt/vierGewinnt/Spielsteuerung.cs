@@ -38,9 +38,15 @@ namespace vierGewinnt
          * \return y-Koordinate des eingeworfenen Spielsteins
          * \return -1 coulumn out of range
          * \return -2 column already full
+         * \return -3 game already over
          */
         public int spielzug(int column)
         {
+            if ( this.spielende != 0 )
+            {
+                return -3;
+            }
+
             int result = this.spielfeld.feldSetzen(column, this.akt);
             if ( result >= 0 )
             {
