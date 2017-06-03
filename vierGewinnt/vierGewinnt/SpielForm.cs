@@ -16,7 +16,8 @@ namespace vierGewinnt
     {
         private List<VGLabel> spielfeld;
         private Spielsteuerung control;
-        public SpielForm()
+        //Aufruf des Base Konstruktors
+        public SpielForm():base() 
         {
             this.spielfeld = new List<VGLabel>();
             this.table = new System.Windows.Forms.TableLayoutPanel();
@@ -204,7 +205,30 @@ namespace vierGewinnt
 
         private void btnClick(Object sender, EventArgs e)
         {
-            
+            //Typ von Sender zu VGButton geändert
+            VGButton btn = (VGButton)sender;
+            int x = btn.Column;
+            int y = 3;
+            VGLabel lbl = findLabel(x, y);
+            if (lbl!=null)
+            {
+                Image imgKreisLbl = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
+                lbl.Image = imgKreisLbl;
+
+            }
+        }
+
+        private VGLabel findLabel(int x,int y)
+        {
+            foreach (VGLabel label in this.spielfeld)
+            {
+                if (label.Column==x & label.Row==y)
+                {
+                    return label;
+                }
+            }
+            //Null Pointer wird zurückgegeben; man kann nicht drauf zugreifen
+            return null;
         }
     }
 }
