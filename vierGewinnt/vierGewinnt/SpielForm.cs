@@ -16,6 +16,7 @@ namespace vierGewinnt
     {
         private List<VGLabel> spielfeld;
         private Spielsteuerung control;
+        private Label akt;
         //Aufruf des Base Konstruktors
         public SpielForm():base() 
         {
@@ -92,7 +93,7 @@ namespace vierGewinnt
                 } 
             }
             //Erzeugen des Symbols für aktuellen Spieler
-            Label lblSpAkt = new System.Windows.Forms.Label();
+            this.akt = new System.Windows.Forms.Label();
 
             //Image imageKreis2 = Image.FromFile("..\\..\\..\\img\\Kreis.png");
             Image imageKreis2;
@@ -104,18 +105,17 @@ namespace vierGewinnt
             {
                 imageKreis2 = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
             }
-               
-            lblSpAkt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.akt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            lblSpAkt.AutoSize = true;
-            lblSpAkt.Location = new System.Drawing.Point(3, 0);
+            this.akt.AutoSize = true;
+            this.akt.Location = new System.Drawing.Point(3, 0);
 
-            lblSpAkt.Name = "label";
-            lblSpAkt.Size = new Size(imageKreis2.Width, imageKreis2.Height);
-            lblSpAkt.Image = imageKreis2;
-            lblSpAkt.TabIndex = 0;
-            this.table.Controls.Add(lblSpAkt, 7, 2);
+            this.akt.Name = "label";
+            this.akt.Size = new Size(imageKreis2.Width, imageKreis2.Height);
+            this.akt.Image = imageKreis2;
+            this.akt.TabIndex = 0;
+            this.table.Controls.Add(this.akt, 7, 2);
 
             //Erzeugen des Labels des Symbols von Spieler 1
             Label lblSp1 = new System.Windows.Forms.Label();
@@ -208,14 +208,37 @@ namespace vierGewinnt
             //Typ von Sender zu VGButton geändert
             VGButton btn = (VGButton)sender;
             int x = btn.Column;
-            int y = 3;
+            int akt = this.control.Akt;
+            int y = this.control.spielzug(x);
+            if (y < 0)
+            {
+                return;
+            }
             VGLabel lbl = findLabel(x, y);
             if (lbl!=null)
             {
-                Image imgKreisLbl = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
+                Image imgKreisLbl;
+                if (akt == 1)
+                {
+                    imgKreisLbl = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
+                }
+                else 
+                {
+                    imgKreisLbl = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
+                }
                 lbl.Image = imgKreisLbl;
-
             }
+            akt = this.control.Akt;
+            Image imgAktLbl;
+            if (akt == 1)
+            {
+                imgAktLbl = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
+            }
+            else
+            {
+                imgAktLbl = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
+            }
+            this.akt.Image = imgAktLbl;
         }
 
         private VGLabel findLabel(int x,int y)
