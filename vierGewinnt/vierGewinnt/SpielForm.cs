@@ -17,6 +17,8 @@ namespace vierGewinnt
         private List<VGLabel> spielfeld;
         private Spielsteuerung control;
         private Label akt;
+        private Label SP1;
+        private Label SP2;
         //Aufruf des Base Konstruktors
         public SpielForm():base() 
         {
@@ -166,37 +168,37 @@ namespace vierGewinnt
 
             //Erzeugen des Labels mit dem Namen von Spieler 1
 
-            Label lblSp1Name = new System.Windows.Forms.Label();
+            this.SP1 = new System.Windows.Forms.Label();
 
-            lblSp1Name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.SP1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            lblSp1Name.AutoSize = false;
-            lblSp1Name.TextAlign = ContentAlignment.MiddleLeft;
-            lblSp1Name.Location = new System.Drawing.Point(3, 0);
-            lblSp1Name.Name = "label";
-            lblSp1Name.Size = new System.Drawing.Size(79, 68);
-            lblSp1Name.TabIndex = 0;
-            lblSp1Name.Text = "Spieler 1";
-            lblSp1Name.Font = new Font(lblSp1Name.Font.FontFamily, 25);
-            this.table.Controls.Add(lblSp1Name, 8, 4);
+            this.SP1.AutoSize = false;
+            this.SP1.TextAlign = ContentAlignment.MiddleLeft;
+            this.SP1.Location = new System.Drawing.Point(3, 0);
+            this.SP1.Name = "label";
+            this.SP1.Size = new System.Drawing.Size(79, 68);
+            this.SP1.TabIndex = 0;
+            this.SP1.Text = "Spieler 1";
+            this.SP1.Font = new Font(this.SP1.Font.FontFamily, 25);
+            this.table.Controls.Add(this.SP1, 8, 4);
 
             //Erzeugen des Labels mit dem Namen von Spieler 2
 
-            Label lblSp2Name = new System.Windows.Forms.Label();
+            this.SP2 = new System.Windows.Forms.Label();
 
-            lblSp2Name.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.SP2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            lblSp2Name.AutoSize = false;
-            lblSp2Name.TextAlign = ContentAlignment.MiddleLeft;
-            lblSp2Name.Location = new System.Drawing.Point(3, 0);
-            lblSp2Name.Name = "label";
-            lblSp2Name.Size = new System.Drawing.Size(79, 68);
-            lblSp2Name.TabIndex = 0;
-            lblSp2Name.Text = "Spieler 2";
-            lblSp2Name.Font = new Font(lblSp2Name.Font.FontFamily, 25);
-            this.table.Controls.Add(lblSp2Name, 8, 5);
+            this.SP2.AutoSize = false;
+            this.SP2.TextAlign = ContentAlignment.MiddleLeft;
+            this.SP2.Location = new System.Drawing.Point(3, 0);
+            this.SP2.Name = "label";
+            this.SP2.Size = new System.Drawing.Size(79, 68);
+            this.SP2.TabIndex = 0;
+            this.SP2.Text = "Spieler 2";
+            this.SP2.Font = new Font(this.SP2.Font.FontFamily, 25);
+            this.table.Controls.Add(this.SP2, 8, 5);
 
 
             this.BackColor = Color.FromArgb(255,0,0,190);
@@ -239,6 +241,15 @@ namespace vierGewinnt
                 imgAktLbl = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
             }
             this.akt.Image = imgAktLbl;
+            if (this.control.Spielende == 1)
+            {
+                MessageBox.Show(this.SP1.Text + " hat gewonnen.");
+            }
+            else if (this.control.Spielende == 2)
+            {
+                MessageBox.Show(this.SP2.Text + " hat gewonnen.");
+            }
+
         }
 
         private VGLabel findLabel(int x,int y)
