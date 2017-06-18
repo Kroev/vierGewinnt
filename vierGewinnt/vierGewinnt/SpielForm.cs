@@ -76,7 +76,7 @@ namespace vierGewinnt
                 for (int y = 1; y < 7; y++)
                 {
                     {
-                       VGLabel label = new VGLabel(y-1,x);
+                        VGLabel label = new VGLabel(y-1,x);
                         this.spielfeld.Add(label);
 
                         Image imageKreis = Image.FromFile("..\\..\\..\\img\\Kreis.png");
@@ -94,10 +94,8 @@ namespace vierGewinnt
                     }
                 } 
             }
-            //Erzeugen des Symbols für aktuellen Spieler
-            this.akt = new System.Windows.Forms.Label();
 
-            //Image imageKreis2 = Image.FromFile("..\\..\\..\\img\\Kreis.png");
+            //Erzeugen des Symbols für aktuellen Spieler
             Image imageKreis2;
             if (control.Akt == 1)
             {
@@ -107,97 +105,34 @@ namespace vierGewinnt
             {
                 imageKreis2 = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
             }
-            this.akt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.akt.AutoSize = true;
-            this.akt.Location = new System.Drawing.Point(3, 0);
-
-            this.akt.Name = "label";
-            this.akt.Size = new Size(imageKreis2.Width, imageKreis2.Height);
+            this.akt = this.initLabel("label", "", imageKreis2.Width, imageKreis2.Height);
             this.akt.Image = imageKreis2;
-            this.akt.TabIndex = 0;
             this.table.Controls.Add(this.akt, 7, 2);
 
             //Erzeugen des Labels des Symbols von Spieler 1
-            Label lblSp1 = new System.Windows.Forms.Label();
-
             Image imgKreisSp1 = Image.FromFile("..\\..\\..\\img\\KreisRot.png");
-            lblSp1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            lblSp1.AutoSize = true;
-            lblSp1.Location = new System.Drawing.Point(3, 0);
-            lblSp1.Name = "label";
-            lblSp1.Size = new Size(imgKreisSp1.Width, imgKreisSp1.Height);
+            Label lblSp1 = this.initLabel("label", "", imgKreisSp1.Width, imgKreisSp1.Height);
             lblSp1.Image = imgKreisSp1;
-            lblSp1.TabIndex = 0;
             this.table.Controls.Add(lblSp1, 7, 4);
 
             //Erzeugen des Labels des Symbols von Spieler 2
-            Label lblSp2 = new System.Windows.Forms.Label();
-
             Image imgKreisSp2 = Image.FromFile("..\\..\\..\\img\\KreisGelb.png");
-            lblSp2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            lblSp2.AutoSize = true;
-            lblSp2.Location = new System.Drawing.Point(3, 0);
-            lblSp2.Name = "label";
-            lblSp2.Size = new Size(imgKreisSp2.Width, imgKreisSp2.Height);
+            Label lblSp2 = this.initLabel("label", "", imgKreisSp2.Width, imgKreisSp2.Height);
             lblSp2.Image = imgKreisSp2;
-            lblSp2.TabIndex = 0;
             this.table.Controls.Add(lblSp2, 7, 5);
 
             //Erzeugen des Labels mit dem Namen des aktuellen Spielers
-
-            Label lblSpAktName = new System.Windows.Forms.Label();
-
-            lblSpAktName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            lblSpAktName.AutoSize = false;
-            lblSpAktName.TextAlign = ContentAlignment.MiddleLeft;
-            lblSpAktName.Location = new System.Drawing.Point(3, 0);
-            lblSpAktName.Name = "label";
-            lblSpAktName.Size = new System.Drawing.Size(79, 68);
-            lblSpAktName.TabIndex = 0;
-            lblSpAktName.Text = "aktueller Spieler";
-            lblSpAktName.Font = new Font(lblSpAktName.Font.FontFamily, 25);
+            Label lblSpAktName = this.initLabel("label", "aktueller Spieler");
             this.table.Controls.Add(lblSpAktName, 8, 2);
 
             //Erzeugen des Labels mit dem Namen von Spieler 1
 
-            this.SP1 = new System.Windows.Forms.Label();
-
-            this.SP1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SP1.AutoSize = false;
-            this.SP1.TextAlign = ContentAlignment.MiddleLeft;
-            this.SP1.Location = new System.Drawing.Point(3, 0);
-            this.SP1.Name = "label";
-            this.SP1.Size = new System.Drawing.Size(79, 68);
-            this.SP1.TabIndex = 0;
-            this.SP1.Text = "Spieler 1";
-            this.SP1.Font = new Font(this.SP1.Font.FontFamily, 25);
+            this.SP1 = this.initLabel("label", "Spieler 1");
             this.table.Controls.Add(this.SP1, 8, 4);
 
             //Erzeugen des Labels mit dem Namen von Spieler 2
 
-            this.SP2 = new System.Windows.Forms.Label();
-
-            this.SP2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SP2.AutoSize = false;
-            this.SP2.TextAlign = ContentAlignment.MiddleLeft;
-            this.SP2.Location = new System.Drawing.Point(3, 0);
-            this.SP2.Name = "label";
-            this.SP2.Size = new System.Drawing.Size(79, 68);
-            this.SP2.TabIndex = 0;
-            this.SP2.Text = "Spieler 2";
-            this.SP2.Font = new Font(this.SP2.Font.FontFamily, 25);
+            this.SP2 = this.initLabel("label", "Spieler 2");
             this.table.Controls.Add(this.SP2, 8, 5);
 
 
@@ -263,6 +198,29 @@ namespace vierGewinnt
             }
             //Null Pointer wird zurückgegeben; man kann nicht drauf zugreifen
             return null;
+        }
+        private Label initLabel(String name, String text,int sizeX, int sizeY)
+        {
+
+            Label lbl = new System.Windows.Forms.Label();
+
+            lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            lbl.AutoSize = false;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Location = new System.Drawing.Point(3, 0);
+            lbl.Name = name;
+            lbl.Size = new System.Drawing.Size(sizeX, sizeY);
+            lbl.TabIndex = 0;
+            lbl.Text = text;
+            lbl.Font = new Font(lbl.Font.FontFamily, 25);
+
+            return lbl;
+        }
+        private Label initLabel(String name, String text)
+        {
+            return this.initLabel(name, text, 79, 68);
         }
     }
 }
