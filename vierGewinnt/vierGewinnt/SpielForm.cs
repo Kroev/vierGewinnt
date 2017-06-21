@@ -20,11 +20,11 @@ namespace vierGewinnt
         private Label SP1;
         private Label SP2;
         //Aufruf des Base Konstruktors
-        public SpielForm():base() 
+        public SpielForm(String name1, String name2):base() 
         {
             this.spielfeld = new List<VGLabel>();
             this.table = new System.Windows.Forms.TableLayoutPanel();
-            this.control = new Spielsteuerung(7, 6);
+            this.control = new Spielsteuerung(7, 6, name1, name2);
             InitializeComponent();
 
             // 
@@ -127,12 +127,12 @@ namespace vierGewinnt
 
             //Erzeugen des Labels mit dem Namen von Spieler 1
 
-            this.SP1 = this.initLabel("label", "Spieler 1");
+            this.SP1 = this.initLabel("label", name1);
             this.table.Controls.Add(this.SP1, 8, 4);
 
             //Erzeugen des Labels mit dem Namen von Spieler 2
 
-            this.SP2 = this.initLabel("label", "Spieler 2");
+            this.SP2 = this.initLabel("label", name2);
             this.table.Controls.Add(this.SP2, 8, 5);
 
 

@@ -20,11 +20,19 @@ namespace vierGewinnt
          * \param width Breite des zu erzeugenden Spielfeldes 
          * \param height Höhe des zu erzeugenden Spielfeldes
          */
-        public Spielsteuerung (int width, int height)
+        public Spielsteuerung (int width, int height, String name1, String name2)
         {
             this.spielfeld = new Spielfeld(height, width);
-            this.gelb = new Spieler("Spieler1", 1);
-            this.rot = new Spieler("Spieler2", 2);
+            if (name1 == "")
+            {
+                name1 = "Spieler1";
+            }
+            if (name2 == "")
+            {
+                name2 = "Spieler2";
+            }
+            this.gelb = new Spieler(name1, 1);
+            this.rot = new Spieler(name2, 2);
             this.akt = 1;
             this.spielende = 0;
         }

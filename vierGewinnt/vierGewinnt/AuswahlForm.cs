@@ -16,5 +16,10 @@ namespace vierGewinnt
         {
             InitializeComponent();
         }
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            SpielForm spf = new SpielForm(txbName1.Text, txbName2.Text);
+            spf.ShowDialog();
+        }
     }
 }
