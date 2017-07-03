@@ -12,7 +12,7 @@ namespace vierGewinnt
         private Spieler gelb; //Spieler 1 von Wert her
         private Spieler rot; //Spieler 2 von Wert her
         private int akt;
-        private int spielende;
+        private int spielende; //0 -> spiel läuft; akt -> gewonnen, -2 -> remis
 
         /**
          * Erzeugt eine neue Spielsteuerung mit einem Spielfeld mit der angegebenen Höhe
@@ -57,6 +57,10 @@ namespace vierGewinnt
                 {
                     this.spielende = this.akt;
                 }
+                else if ( gewinn == -2 )
+                {
+                    this.spielende = -2;
+                }
                 else
                 {
                     //Spieler flicken
@@ -83,6 +87,7 @@ namespace vierGewinnt
          * \return 0 kein Gewinn
          * \return 1 Gewinn
          * \return -1 Fehler, XY out of range
+         * \return -2 Remis
          */
         private int gewinnermittlung (int x, int y)
         {
@@ -172,6 +177,13 @@ namespace vierGewinnt
                 if (streak >= winningCondition)
                 {
                     return 1;
+                }
+
+                //test for remis
+                if ( this.spielfeld.isfull() )
+                {
+                    //if we reach this point and spielfeld is full => remis
+                    return -2;
                 }
 
                 return 0;
