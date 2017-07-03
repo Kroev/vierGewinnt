@@ -36,8 +36,23 @@ namespace vierGewinnt
                 this.Hide();
                 SpielForm spf = new SpielForm(sp1, sp2);
                 spf.ShowDialog();// macht spielform sichtbar
-                this.Close();
-                
+                const string message ="Wollen Sie ein neues Spiel beginnen?";
+                const string caption = "Neues Spiel";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+
+                // If the no button was pressed ...
+                if (result == DialogResult.Yes)
+                {
+                    // Zeigt wieder Auswahlform
+                    this.Show();
+                }
+                else
+                {
+                    //schließt Auswahlform
+                    this.Close();
+                }
             }     
         }
     }
