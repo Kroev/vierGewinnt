@@ -80,6 +80,43 @@ namespace vierGewinnt
             control.Spielfeld.print();
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
 
+            //remisermittlung
+            control = new Spielsteuerung(7, 6);
+            for (int i = 0; i < 6; i++)
+            {
+                control.spielzug(0);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                control.spielzug(1);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                control.spielzug(4);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                control.spielzug(5);
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                control.spielzug(6);
+            }
+            control.spielzug(2);
+            control.spielzug(3);
+            control.spielzug(3);
+            control.spielzug(2);
+            control.spielzug(2);
+            control.spielzug(3);
+            control.spielzug(3);
+            control.spielzug(2);
+            control.spielzug(2);
+            control.spielzug(3);
+            control.spielzug(3);
+            control.spielzug(2);
+            control.Spielfeld.print();
+            Console.WriteLine("Spielende sollte jetzt auf -2 stehen: spielende = " + control.Spielende);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SpielForm());
