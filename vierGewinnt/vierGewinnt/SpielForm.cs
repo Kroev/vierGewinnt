@@ -186,6 +186,11 @@ namespace vierGewinnt
                 MessageBox.Show(this.SP2.Text + " hat gewonnen.");
                 this.Close();
             }
+            else if (this.control.Spielende == -2)
+            {
+                MessageBox.Show("Unentschieden");
+                this.Close();
+            }
 
         }
 
