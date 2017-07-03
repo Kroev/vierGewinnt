@@ -176,5 +176,21 @@ namespace vierGewinnt
 
             return 0;
         }
+        /**
+         * prüft ob die Obersten Plätze des Spielfelds belegt sind und somit ob das Spielfeld voll ist
+         * \return true wenn voll
+         * \return false wenn nicht voll
+         */
+        public bool isfull()
+        {
+            for(int x=0; x < felder.GetLength(0); x++)
+            {
+                if (felder[x, 0]==0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
