@@ -178,12 +178,12 @@ namespace vierGewinnt
             this.akt.Image = imgAktLbl;
             if (this.control.Spielende == 1)
             {
-                MessageBox.Show(this.SP1.Text + " hat gewonnen.");
+                MessageBox.Show("Rot: " + this.SP1.Text + " hat gewonnen.");
                 this.Close();
             }
             else if (this.control.Spielende == 2)
             {
-                MessageBox.Show(this.SP2.Text + " hat gewonnen.");
+                MessageBox.Show("Gelb: " + this.SP2.Text + " hat gewonnen.");
                 this.Close();
             }
             else if (this.control.Spielende == -2)
