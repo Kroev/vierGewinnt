@@ -19,7 +19,14 @@ namespace vierGewinnt
         private Label akt;
         private Label SP1;
         private Label SP2;
-        //Aufruf des Base Konstruktors
+
+        /**
+         * Erzeugt neue SpielForm mit Spielernamen.
+         * Spielsteuerung wird hier mit konstanten (7x6) Spielfeld instanziiert.
+         * 
+         * \param name1 Name des Spielers 1
+         * \param name2 Name des Spielers 2
+         */
         public SpielForm(String name1, String name2):base() 
         {
             this.spielfeld = new List<VGLabel>();
@@ -140,6 +147,10 @@ namespace vierGewinnt
 
         }
 
+        /**
+         * Listener auf die SpaltenButtons, löst den Spielzug aus.
+         * führt auf Spielsteuerung Spielzug aus und setzt die Spielsteine.
+         */
         private void btnClick(Object sender, EventArgs e)
         {
             //Typ von Sender zu VGButton geändert
@@ -194,11 +205,19 @@ namespace vierGewinnt
 
         }
 
+        /**
+         * Liefert das Label an der angegebenen Koordinate
+         * \param x x-Koordinate
+         * \param y y-Koordinate
+         * 
+         * \returns VGLabel VGLabel an den angegebenen Koordinaten
+         * \returns null falls das Label nicht existiert.
+         */
         private VGLabel findLabel(int x,int y)
         {
             foreach (VGLabel label in this.spielfeld)
             {
-                if (label.Column==x & label.Row==y)
+                if (label.Column==x && label.Row==y)
                 {
                     return label;
                 }
@@ -206,6 +225,17 @@ namespace vierGewinnt
             //Null Pointer wird zurückgegeben; man kann nicht drauf zugreifen
             return null;
         }
+
+        /**
+         * Neues Label wird initialisiert
+         * Ausgelagerte Initialisierung, setzt Größe, Name und Text.
+         * \param name Name des Labels
+         * \param text Text, welcher auf dem Label steht
+         * \param sizeX breite
+         * \param sizeY höhe
+         * 
+         * \returns Label neu erzeugtes Label
+         */
         private Label initLabel(String name, String text,int sizeX, int sizeY)
         {
 
@@ -225,6 +255,11 @@ namespace vierGewinnt
 
             return lbl;
         }
+
+        /**
+         * \overload 
+         * Setzt Größe fix auf 79x68 Px.
+         */
         private Label initLabel(String name, String text)
         {
             return this.initLabel(name, text, 79, 68);
