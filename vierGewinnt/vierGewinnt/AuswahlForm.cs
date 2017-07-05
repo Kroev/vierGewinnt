@@ -16,8 +16,22 @@ namespace vierGewinnt
         public AuswahlForm() : base() 
         {
             InitializeComponent();
+            //this.KeyDown += new KeyEventHandler(btnOK_KeyDown);
+        }
+        
+
+        private void Enter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                newGame();
+            }
         }
         private void btnOk_Click(object sender, EventArgs e)
+        {
+            newGame();
+        }
+        private void newGame()
         {
             String sp1 = txbName1.Text;
             String sp2 = txbName2.Text;
@@ -26,9 +40,9 @@ namespace vierGewinnt
             {
                 MessageBox.Show("Mindestens eine der beiden Eingaben ist leer."); //show
             }
-            else if (!(regex.IsMatch(sp1)) || !(regex.IsMatch(sp2)) )
+            else if (!(regex.IsMatch(sp1)) || !(regex.IsMatch(sp2)))
             {
-                MessageBox.Show("Die Zeicheneingabe ist Fehlerhaft."+
+                MessageBox.Show("Die Zeicheneingabe ist Fehlerhaft." +
                     "Nur 15 Zeichen A-Z ohne Leerzeichen sind erlaubt.");
             }
             else
@@ -36,7 +50,7 @@ namespace vierGewinnt
                 this.Hide();
                 SpielForm spf = new SpielForm(sp1, sp2);
                 spf.ShowDialog();// macht spielform sichtbar
-                const string message ="Wollen Sie ein neues Spiel beginnen?";
+                const string message = "Wollen Sie ein neues Spiel beginnen?";
                 const string caption = "Neues Spiel";
                 var result = MessageBox.Show(message, caption,
                                              MessageBoxButtons.YesNo,
@@ -53,7 +67,8 @@ namespace vierGewinnt
                     //schließt Auswahlform
                     this.Close();
                 }
-            }     
+            }
         }
     }
 }
+

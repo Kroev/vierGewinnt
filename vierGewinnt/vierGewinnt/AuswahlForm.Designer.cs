@@ -61,31 +61,34 @@
             // 
             this.txbName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbName1.Location = new System.Drawing.Point(224, 32);
-            this.txbName1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbName1.Margin = new System.Windows.Forms.Padding(2);
             this.txbName1.Name = "txbName1";
             this.txbName1.Size = new System.Drawing.Size(219, 32);
             this.txbName1.TabIndex = 2;
+            this.txbName1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_KeyDown);
             // 
             // txbName2
             // 
             this.txbName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbName2.Location = new System.Drawing.Point(224, 89);
-            this.txbName2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbName2.Margin = new System.Windows.Forms.Padding(2);
             this.txbName2.Name = "txbName2";
             this.txbName2.Size = new System.Drawing.Size(219, 32);
             this.txbName2.TabIndex = 3;
+            this.txbName2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_KeyDown);
             // 
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Location = new System.Drawing.Point(396, 256);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(2);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(140, 66);
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOk.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_KeyDown);
             // 
             // AuswahlForm
             // 
@@ -97,9 +100,10 @@
             this.Controls.Add(this.txbName1);
             this.Controls.Add(this._Name2);
             this.Controls.Add(this._Name1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AuswahlForm";
             this.Text = "AuswahlForm";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
