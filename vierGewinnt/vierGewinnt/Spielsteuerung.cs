@@ -218,5 +218,31 @@ namespace vierGewinnt
                 return akt;
             }
         }
+
+        public Spieler Gelb
+        {
+            get
+            {
+                return gelb;
+            }
+
+            set
+            {
+                gelb = value;
+            }
+        }
+
+        public Spieler Rot
+        {
+            get
+            {
+                return rot;
+            }
+
+            set
+            {
+                rot = value;
+            }
+        }
     }
 }
