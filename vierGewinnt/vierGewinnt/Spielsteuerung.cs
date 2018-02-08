@@ -219,30 +219,23 @@ namespace vierGewinnt
             }
         }
 
-        public Spieler Gelb
+        //abstraction of Spieler object
+        public String getRotName ()
         {
-            get
-            {
-                return gelb;
-            }
-
-            set
-            {
-                gelb = value;
-            }
+            return this.rot.Name;
+        }
+        public String getGelbName ()
+        {
+            return this.gelb.Name;
         }
 
-        public Spieler Rot
+        public int getRotElo ()
         {
-            get
-            {
-                return rot;
-            }
-
-            set
-            {
-                rot = value;
-            }
+            return this.rot.Elo;
+        }
+        public int getGelbElo ()
+        {
+            return this.gelb.Elo;
         }
     }
 }
