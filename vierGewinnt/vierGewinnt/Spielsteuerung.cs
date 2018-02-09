@@ -253,6 +253,19 @@ namespace vierGewinnt
             }
         }
 
+        internal Spielfeld Spielfeld
+        {
+            get
+            {
+                return spielfeld;
+            }
+
+            set
+            {
+                spielfeld = value;
+            }
+        }
+
         //abstraction of Spieler object
         public String getRotName ()
         {
