@@ -21,6 +21,8 @@ namespace vierGewinnt
         static void Main()
         {
             AllocConsole();
+            int eloyellow;
+            int elored;
 
             //test insert token into column
             Spielfeld spielfeld = new Spielfeld(5, 3);
@@ -46,6 +48,8 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
             Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
             Console.WriteLine("Elo Spieler2: " + control.getRotElo());
+            eloyellow = control.getGelbElo();
+            elored = control.getRotElo();
 
             //vertikale gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
@@ -59,6 +63,8 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 2 stehen: spielende = " + control.Spielende);
             Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
             Console.WriteLine("Elo Spieler2: " + control.getRotElo());
+            eloyellow = control.getGelbElo();
+            elored = control.getRotElo();
 
             //diagonale 1 gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
@@ -73,6 +79,8 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
             Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
             Console.WriteLine("Elo Spieler2: " + control.getRotElo());
+            eloyellow = control.getGelbElo();
+            elored = control.getRotElo();
 
             //diagonale 2 gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
@@ -87,6 +95,8 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
             Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
             Console.WriteLine("Elo Spieler2: " + control.getRotElo());
+            eloyellow = control.getGelbElo();
+            elored = control.getRotElo();
 
             //remisermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
