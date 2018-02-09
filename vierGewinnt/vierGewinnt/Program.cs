@@ -53,6 +53,8 @@ namespace vierGewinnt
 
             //vertikale gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
+            control.setgelbElo(eloyellow);
+            control.setRotElo(elored);
             control.spielzug(0);
             for(int j =0; j < 8; j++)
             {
@@ -68,6 +70,8 @@ namespace vierGewinnt
 
             //diagonale 1 gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
+            control.setgelbElo(eloyellow);
+            control.setRotElo(elored);
             for (int k = 0; k < 8; k++)
             {
                 control.spielzug(k);
@@ -84,6 +88,8 @@ namespace vierGewinnt
 
             //diagonale 2 gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
+            control.setgelbElo(eloyellow);
+            control.setRotElo(elored);
             for (int k = 6; k > -1; k--)
             {
                 control.spielzug(k);
@@ -100,6 +106,8 @@ namespace vierGewinnt
 
             //remisermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
+            control.setgelbElo(eloyellow);
+            control.setRotElo(elored);
             for (int i = 0; i < 6; i++)
             {
                 control.spielzug(0);
