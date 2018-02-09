@@ -279,9 +279,19 @@ namespace vierGewinnt
         {
             return this.rot.Elo;
         }
+        public int setRotElo(int elo)
+        {
+            rot.Elo = elo;
+            return 0;
+        }
         public int getGelbElo ()
         {
             return this.gelb.Elo;
+        }
+        public int setgelbElo(int elo)
+        {
+            gelb.Elo = elo;
+            return 0;
         }
     }
 }
