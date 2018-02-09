@@ -44,6 +44,8 @@ namespace vierGewinnt
             }
             control.Spielfeld.print();
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+            Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
+            Console.WriteLine("Elo Spieler2: " + control.getRotElo());
 
             //vertikale gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
@@ -55,6 +57,8 @@ namespace vierGewinnt
             }
             control.Spielfeld.print();
             Console.WriteLine("Spielende sollte jetzt auf 2 stehen: spielende = " + control.Spielende);
+            Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
+            Console.WriteLine("Elo Spieler2: " + control.getRotElo());
 
             //diagonale 1 gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
@@ -67,6 +71,8 @@ namespace vierGewinnt
             }
             control.Spielfeld.print();
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+            Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
+            Console.WriteLine("Elo Spieler2: " + control.getRotElo());
 
             //diagonale 2 gewinnermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
@@ -79,6 +85,8 @@ namespace vierGewinnt
             }
             control.Spielfeld.print();
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
+            Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
+            Console.WriteLine("Elo Spieler2: " + control.getRotElo());
 
             //remisermittlung
             control = new Spielsteuerung(7, 6, "red", "yellow");
@@ -116,6 +124,8 @@ namespace vierGewinnt
             control.spielzug(2);
             control.Spielfeld.print();
             Console.WriteLine("Spielende sollte jetzt auf -2 stehen: spielende = " + control.Spielende);
+            Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
+            Console.WriteLine("Elo Spieler2: " + control.getRotElo());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

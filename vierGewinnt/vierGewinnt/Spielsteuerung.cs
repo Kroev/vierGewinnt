@@ -211,7 +211,6 @@ namespace vierGewinnt
         {
             int eloalt1 = gelb.Elo;
             int eloalt2 = rot.Elo;
-            int elowert = 0;
             int winloose = 0;
             int K = 32;
             int C = 200;
