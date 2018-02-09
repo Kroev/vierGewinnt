@@ -19,6 +19,8 @@ namespace vierGewinnt
         private Label akt;
         private Label SP1;
         private Label SP2;
+        private Label SP1Elo;
+        private Label SP2Elo;
 
         /**
          * Erzeugt neue SpielForm mit Spielernamen.
@@ -31,7 +33,7 @@ namespace vierGewinnt
         {
             this.spielfeld = new List<VGLabel>();
             this.table = new System.Windows.Forms.TableLayoutPanel();
-            this.control = new Spielsteuerung(7, 6, name1, name2);
+            this.control = new Spielsteuerung(7, 6,name1,name2);
             InitializeComponent();
 
             // 
@@ -39,7 +41,7 @@ namespace vierGewinnt
             // 
             this.table.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             //Spalten
-            this.table.ColumnCount = 9;
+            this.table.ColumnCount = 10;
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
@@ -48,7 +50,8 @@ namespace vierGewinnt
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.28572F));
-            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 150.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.28572F));
             this.table.Location = new System.Drawing.Point(1, 1);
             this.table.Name = "table";
             //Zeilen
@@ -134,14 +137,23 @@ namespace vierGewinnt
 
             //Erzeugen des Labels mit dem Namen von Spieler 1
 
-            this.SP1 = this.initLabel("label", name1);
+            this.SP1 = this.initLabel("label", control.getGelbName());
             this.table.Controls.Add(this.SP1, 8, 4);
 
             //Erzeugen des Labels mit dem Namen von Spieler 2
 
-            this.SP2 = this.initLabel("label", name2);
+            this.SP2 = this.initLabel("label", control.getRotName());
             this.table.Controls.Add(this.SP2, 8, 5);
 
+            //Erzeugen des Labels mit der Elo von Spieler 1
+
+            this.SP1Elo = this.initLabel("label","Elo: "+control.getGelbElo());
+            this.table.Controls.Add(this.SP1Elo, 9, 4);
+
+            //Erzeugen des Labels mit der Elo von Spieler 2
+
+            this.SP2Elo = this.initLabel("label","Elo: "+control.getRotElo());
+            this.table.Controls.Add(this.SP2Elo, 9, 5);
 
             this.BackColor = Color.FromArgb(255,0,0,190);
 
