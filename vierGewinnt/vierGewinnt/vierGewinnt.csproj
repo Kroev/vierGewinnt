@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuswahlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuswahlForm.Designer.cs">
+      <DependentUpon>AuswahlForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spieler.cs" />
     <Compile Include="Spielfeld.cs" />
     <Compile Include="SpielForm.cs">
@@ -63,6 +69,9 @@
     <Compile Include="VGLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="AuswahlForm.resx">
+      <DependentUpon>AuswahlForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SpielForm.resx">
       <DependentUpon>SpielForm.cs</DependentUpon>
     </EmbeddedResource>

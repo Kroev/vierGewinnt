@@ -7,14 +7,30 @@ using System.Windows.Forms;
 
 namespace vierGewinnt
 {
-    class VGLabel:Label 
+    class VGLabel : Label
     {
         private int row;
         private int column;
-        public VGLabel(int row, int column):base()
+        public VGLabel(int row, int column) : base()
         {
             this.row = row;
             this.column = column;
+        }
+
+        public int Row
+        {
+            get
+            {
+                return row;
+            }
+        }
+
+        public int Column
+        {
+            get
+            {
+                return column;
+            }
         }
     }
 }

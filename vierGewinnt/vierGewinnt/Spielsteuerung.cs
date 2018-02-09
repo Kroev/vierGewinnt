@@ -20,11 +20,19 @@ namespace vierGewinnt
          * \param width Breite des zu erzeugenden Spielfeldes 
          * \param height Höhe des zu erzeugenden Spielfeldes
          */
-        public Spielsteuerung (int width, int height)
+        public Spielsteuerung (int width, int height, String name1, String name2)
         {
             this.spielfeld = new Spielfeld(height, width);
-            this.gelb = new Spieler("Spieler1", 1);
-            this.rot = new Spieler("Spieler2", 2);
+            if (name1 == "")
+            {
+                name1 = "Spieler1";
+            }
+            if (name2 == "")
+            {
+                name2 = "Spieler2";
+            }
+            this.gelb = new Spieler(name1, 1);
+            this.rot = new Spieler(name2, 2);
             this.akt = 1;
             this.spielende = 0;
         }
@@ -56,10 +64,14 @@ namespace vierGewinnt
                 if (gewinn > 0)
                 {
                     this.spielende = this.akt;
+                    //elorechnung
+                    elorechnung(this.spielende);
                 }
                 else if ( gewinn == -2 )
                 {
                     this.spielende = -2;
+                    //elorechnung
+                    elorechnung(this.spielende);
                 }
                 else
                 {
@@ -195,6 +207,36 @@ namespace vierGewinnt
             }
         }
 
+        public int elorechnung(int winner)
+        {
+            int eloalt1 = gelb.Elo;
+            int eloalt2 = rot.Elo;
+            int elowert = 0;
+            int winloose = 0;
+            int K = 32;
+            int C = 200;
+
+            switch (winner)
+            {
+                case 1:
+                    winloose = 1;
+                    break;
+                case 2:
+                    winloose = -1;
+                    break;
+                case -2:
+                    winloose = 0;
+                    break;
+                default:
+                    return -1;
+            }
+            gelb.Elo = eloalt1 + (K / 2) * (winloose + (1 / 2) * ((eloalt2 - eloalt1) / C));
+            rot.Elo = eloalt2 + (K / 2) * (-1 * winloose + (1 / 2) * ((eloalt2 - eloalt1) / C));
+            return 0;
+
+
+        }
+
         public int Spielende
         {
             get
@@ -211,12 +253,23 @@ namespace vierGewinnt
             }
         }
 
-        internal Spielfeld Spielfeld
+        //abstraction of Spieler object
+        public String getRotName ()
         {
-            get
-            {
-                return spielfeld;
-            }
+            return this.rot.Name;
+        }
+        public String getGelbName ()
+        {
+            return this.gelb.Name;
+        }
+
+        public int getRotElo ()
+        {
+            return this.rot.Elo;
+        }
+        public int getGelbElo ()
+        {
+            return this.gelb.Elo;
         }
     }
 }
