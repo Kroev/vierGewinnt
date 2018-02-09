@@ -36,7 +36,7 @@ namespace vierGewinnt
             Console.WriteLine("trying to insert anotherone into column 0, if -2 -> OK: " + test);
 
             //test horizontale gewinnermittlung
-            Spielsteuerung control = new Spielsteuerung(7, 6);
+            Spielsteuerung control = new Spielsteuerung(7, 6, "red", "yellow");
             for (int i = 0; i < 5; i++)
             {
                 control.spielzug(i);
@@ -46,7 +46,7 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
 
             //vertikale gewinnermittlung
-            control = new Spielsteuerung(7, 6);
+            control = new Spielsteuerung(7, 6, "red", "yellow");
             control.spielzug(0);
             for(int j =0; j < 8; j++)
             {
@@ -57,7 +57,7 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 2 stehen: spielende = " + control.Spielende);
 
             //diagonale 1 gewinnermittlung
-            control = new Spielsteuerung(7, 6);
+            control = new Spielsteuerung(7, 6, "red", "yellow");
             for (int k = 0; k < 8; k++)
             {
                 control.spielzug(k);
@@ -69,7 +69,7 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
 
             //diagonale 2 gewinnermittlung
-            control = new Spielsteuerung(7, 6);
+            control = new Spielsteuerung(7, 6, "red", "yellow");
             for (int k = 6; k > -1; k--)
             {
                 control.spielzug(k);
@@ -81,7 +81,7 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf 1 stehen: spielende = " + control.Spielende);
 
             //remisermittlung
-            control = new Spielsteuerung(7, 6);
+            control = new Spielsteuerung(7, 6, "red", "yellow");
             for (int i = 0; i < 6; i++)
             {
                 control.spielzug(0);
@@ -119,7 +119,7 @@ namespace vierGewinnt
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AuswahlForm());
+            Application.Run();
         }
     }
 }
