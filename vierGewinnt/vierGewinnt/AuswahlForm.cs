@@ -40,6 +40,11 @@ namespace vierGewinnt
             newGame();
         }
 
+        private void btnStatistik_Click(object sender, EventArgs e)
+        {
+            newGame();
+        }
+
         /**
          * Funktion um ein neues Spiel zu starten.
          * Funktion erzeugt neues Spiel, hier wird neue SpielForm erzeugt und Spielernamen übergeben.
