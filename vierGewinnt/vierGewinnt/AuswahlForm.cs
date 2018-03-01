@@ -42,7 +42,7 @@ namespace vierGewinnt
 
         private void btnStatistik_Click(object sender, EventArgs e)
         {
-            newGame();
+            newStatistic();
         }
 
         /**
@@ -87,6 +87,11 @@ namespace vierGewinnt
                     this.Close();
                 }
             }
+        }
+        private void newStatistic()
+        {
+            StatistikForm stf = new StatistikForm();
+            stf.ShowDialog();// macht spielform sichtbar
         }
     }
 }
