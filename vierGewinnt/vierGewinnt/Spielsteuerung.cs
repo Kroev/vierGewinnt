@@ -207,7 +207,7 @@ namespace vierGewinnt
             }
         }
 
-        public int elorechnung(int winner)
+        public int elorechnung(int winner)//erfolgreich getestet
         {
             float eloaltgelb = gelb.Elo;
             float eloaltrot = rot.Elo;
