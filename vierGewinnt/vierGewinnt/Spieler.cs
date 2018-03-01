@@ -12,6 +12,7 @@ namespace vierGewinnt
         int wert;
         int elo = 600;
 
+
         public Spieler (String name, int wert)
         {
             this.name = name;

@@ -209,11 +209,15 @@ namespace vierGewinnt
 
         public int elorechnung(int winner)
         {
-            int eloalt1 = gelb.Elo;
-            int eloalt2 = rot.Elo;
-            int winloose = 0;
-            int K = 32;
-            int C = 200;
+            float eloaltgelb = gelb.Elo;
+            float eloaltrot = rot.Elo;
+            float eloneugelb;
+            float eloneurot;
+            float winloose = 0;
+            float K = 32;
+            float C = 200;
+            float a = 1; //setzen a=1 als float zur korrekten Berechnung der Werte
+            float b = 2; //setzen b=2 als float zur korrekten Berechnung der Werte
 
             switch (winner)
             {
@@ -229,8 +233,10 @@ namespace vierGewinnt
                 default:
                     return -1;
             }
-            gelb.Elo = eloalt1 + (K / 2) * (winloose + (1 / 2) * ((eloalt2 - eloalt1) / C));
-            rot.Elo = eloalt2 + (K / 2) * (-1 * winloose + (1 / 2) * ((eloalt2 - eloalt1) / C));
+            eloneugelb = eloaltgelb + (K / b) * (winloose + (a / b) * ((eloaltrot - eloaltgelb) / C));
+            eloneurot = eloaltrot + (K / b) * (-a*winloose + (a / b) * ((eloaltgelb - eloaltrot) / C));
+            gelb.Elo = (int)eloneugelb;
+            rot.Elo = (int)eloneurot;
             return 0;
 
 
