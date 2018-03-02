@@ -66,7 +66,7 @@ namespace vierGewinnt
             }
         }
 
-        public DBConnector getInstance()
+        public static DBConnector getInstance()
         {
             if ( instance == null )
             {
