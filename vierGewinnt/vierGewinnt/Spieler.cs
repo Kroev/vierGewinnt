@@ -10,7 +10,7 @@ namespace vierGewinnt
     {
         String name;
         int wert;
-        int elo;
+        int elo=600;
 
         public Spieler (String name, int wert)
         {

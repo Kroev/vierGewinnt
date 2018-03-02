@@ -64,10 +64,14 @@ namespace vierGewinnt
                 if (gewinn > 0)
                 {
                     this.spielende = this.akt;
+                    //elorechnung
+                    elorechnung(this.spielende);
                 }
                 else if ( gewinn == -2 )
                 {
                     this.spielende = -2;
+                    //elorechnung
+                    elorechnung(this.spielende);
                 }
                 else
                 {
@@ -201,6 +205,41 @@ namespace vierGewinnt
             {
                 return wert;
             }
+        }
+
+        public int elorechnung(int winner)
+        {
+            float eloaltgelb = gelb.Elo;
+            float eloaltrot = rot.Elo;
+            float eloneugelb;
+            float eloneurot;
+            float winloose = 0;
+            float K = 32;
+            float C = 200;
+            float a = 1; //setzen a=1 als float zur korrekten Berechnung der Werte
+            float b = 2; //setzen b=2 als float zur korrekten Berechnung der Werte
+
+            switch (winner)
+            {
+                case 1:
+                    winloose = 1;
+                    break;
+                case 2:
+                    winloose = -1;
+                    break;
+                case -2:
+                    winloose = 0;
+                    break;
+                default:
+                    return -1;
+            }
+            eloneugelb = eloaltgelb + (K / b) * (winloose + (a / b) * ((eloaltrot - eloaltgelb) / C));
+            eloneurot = eloaltrot + (K / b) * (-a*winloose + (a / b) * ((eloaltgelb - eloaltrot) / C));
+            gelb.Elo = (int)eloneugelb;
+            rot.Elo = (int)eloneurot;
+            return 0;
+
+
         }
 
         public int Spielende
