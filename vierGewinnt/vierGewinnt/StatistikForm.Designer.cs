@@ -72,6 +72,7 @@
             this.SpielerName.FillWeight = 250F;
             this.SpielerName.HeaderText = "SpielerName";
             this.SpielerName.Name = "SpielerName";
+            this.SpielerName.ReadOnly = true;
             this.SpielerName.Width = 250;
             // 
             // Elo
