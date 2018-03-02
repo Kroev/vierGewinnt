@@ -33,6 +33,7 @@
             this.txbName1 = new System.Windows.Forms.TextBox();
             this.txbName2 = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
+            this.btnStatistik = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _Name1
@@ -90,11 +91,24 @@
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             this.btnOk.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_KeyDown);
             // 
+            // btnStatistik
+            // 
+            this.btnStatistik.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistik.Location = new System.Drawing.Point(39, 256);
+            this.btnStatistik.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStatistik.Name = "btnStatistik";
+            this.btnStatistik.Size = new System.Drawing.Size(140, 66);
+            this.btnStatistik.TabIndex = 5;
+            this.btnStatistik.Text = "Statistik";
+            this.btnStatistik.UseVisualStyleBackColor = true;
+            this.btnStatistik.Click += new System.EventHandler(this.btnStatistik_Click);
+            // 
             // AuswahlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 351);
+            this.Controls.Add(this.btnStatistik);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txbName2);
             this.Controls.Add(this.txbName1);
@@ -116,5 +130,6 @@
         private System.Windows.Forms.TextBox txbName1;
         private System.Windows.Forms.TextBox txbName2;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnStatistik;
     }
 }

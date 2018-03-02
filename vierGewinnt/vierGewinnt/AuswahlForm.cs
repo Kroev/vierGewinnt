@@ -13,13 +13,17 @@ namespace vierGewinnt
 {
     public partial class AuswahlForm : Form
     {
+        /**
+         * AuswahlForm Konstruktor
+         */
         public AuswahlForm() : base() 
         {
             InitializeComponent();
-            //this.KeyDown += new KeyEventHandler(btnOK_KeyDown);
         }
         
-
+        /**
+         * Button Listener für Enter in AuswahlForm für neues Spiel starten
+         */
         private void Enter_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -27,10 +31,25 @@ namespace vierGewinnt
                 newGame();
             }
         }
+
+        /**
+         * Klick auf Ok Button um ein neues Spiel zu starten
+         */
         private void btnOk_Click(object sender, EventArgs e)
         {
             newGame();
         }
+
+        private void btnStatistik_Click(object sender, EventArgs e)
+        {
+            newStatistic();
+        }
+
+        /**
+         * Funktion um ein neues Spiel zu starten.
+         * Funktion erzeugt neues Spiel, hier wird neue SpielForm erzeugt und Spielernamen übergeben.
+         * Bei Schließen des SpielForms wird per MessageBox der Neustart angefragt.
+         */
         private void newGame()
         {
             String sp1 = txbName1.Text;
@@ -68,6 +87,11 @@ namespace vierGewinnt
                     this.Close();
                 }
             }
+        }
+        private void newStatistic()
+        {
+            StatistikForm stf = new StatistikForm();
+            stf.ShowDialog();// macht spielform sichtbar
         }
     }
 }
