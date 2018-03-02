@@ -93,6 +93,7 @@
     <EmbeddedResource Include="StatistikForm.resx">
       <DependentUpon>StatistikForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Spielsteuerung.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
