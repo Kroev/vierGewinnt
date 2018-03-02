@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this._Statistik = new System.Windows.Forms.Label();
             this.dataGridStatistik = new System.Windows.Forms.DataGridView();
+            this.spielsteuerungBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SpielerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Elo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spielendeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aktDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStatistik)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spielsteuerungBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // _Statistik
@@ -49,6 +54,7 @@
             // 
             // dataGridStatistik
             // 
+            this.dataGridStatistik.AutoGenerateColumns = false;
             this.dataGridStatistik.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -61,11 +67,18 @@
             this.dataGridStatistik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridStatistik.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SpielerName,
-            this.Elo});
+            this.Elo,
+            this.spielendeDataGridViewTextBoxColumn,
+            this.aktDataGridViewTextBoxColumn});
+            this.dataGridStatistik.DataSource = this.spielsteuerungBindingSource;
             this.dataGridStatistik.Location = new System.Drawing.Point(164, 49);
             this.dataGridStatistik.Name = "dataGridStatistik";
             this.dataGridStatistik.Size = new System.Drawing.Size(393, 492);
             this.dataGridStatistik.TabIndex = 2;
+            // 
+            // spielsteuerungBindingSource
+            // 
+            this.spielsteuerungBindingSource.DataSource = typeof(vierGewinnt.Spielsteuerung);
             // 
             // SpielerName
             // 
@@ -81,6 +94,20 @@
             this.Elo.Name = "Elo";
             this.Elo.ReadOnly = true;
             // 
+            // spielendeDataGridViewTextBoxColumn
+            // 
+            this.spielendeDataGridViewTextBoxColumn.DataPropertyName = "Spielende";
+            this.spielendeDataGridViewTextBoxColumn.HeaderText = "Spielende";
+            this.spielendeDataGridViewTextBoxColumn.Name = "spielendeDataGridViewTextBoxColumn";
+            this.spielendeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aktDataGridViewTextBoxColumn
+            // 
+            this.aktDataGridViewTextBoxColumn.DataPropertyName = "Akt";
+            this.aktDataGridViewTextBoxColumn.HeaderText = "Akt";
+            this.aktDataGridViewTextBoxColumn.Name = "aktDataGridViewTextBoxColumn";
+            this.aktDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // StatistikForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +120,7 @@
             this.Text = "StatistikForm";
             this.Load += new System.EventHandler(this.StatistikForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStatistik)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spielsteuerungBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +132,8 @@
         private System.Windows.Forms.DataGridView dataGridStatistik;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpielerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Elo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn spielendeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aktDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource spielsteuerungBindingSource;
     }
 }
