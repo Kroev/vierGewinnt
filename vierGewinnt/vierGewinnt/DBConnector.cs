@@ -42,7 +42,7 @@ namespace vierGewinnt
          * hashtable with data of the player if found, null if none found
          * </returns>
          * */
-        public Spieler getPlayer ( int id )
+        public Hashtable getPlayer ( int id )
         {
             SqlCommand cmd = this.conn.CreateCommand();
             cmd.CommandText = "SELECT * FROM spieler WHERE spieler_id = ";
@@ -57,8 +57,11 @@ namespace vierGewinnt
                 String name = (String)reader["name"];
                 int elo = (int)reader["elo"];
                 reader.Close();
-                
-                Hasht             
+
+                Hashtable spieler = new Hashtable();
+                spieler["name"] = name;
+                spieler["elo"] = elo;
+                return spieler;
             }
             else
             {
