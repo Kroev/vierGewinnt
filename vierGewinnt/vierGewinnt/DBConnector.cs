@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +19,10 @@ namespace vierGewinnt
 
         private DBConnector()
         {
-            this.url = "den1.mysql5.gear.host";
-            this.database = "VierGewinnt";
+            this.url = "den1.mssql4.gear.host";
+            this.database = "viergewinnt";
             this.user = "viergewinnt";
-            this.password = "ifs12bAdmin!";
+            this.password = "Bernd-Bernd";
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder["server"] = this.url;
@@ -35,6 +35,35 @@ namespace vierGewinnt
             this.conn.ConnectionString = builder.ConnectionString;
             this.conn.Open();
 
+        }
+
+        /**
+         * <returns>
+         * hashtable with data of the player if found, null if none found
+         * </returns>
+         * */
+        public Spieler getPlayer ( int id )
+        {
+            SqlCommand cmd = this.conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM spieler WHERE spieler_id = ";
+            cmd.CommandText += id.ToString();
+            cmd.CommandText += ";";
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if ( reader.HasRows )
+            {
+                reader.Read();
+                String name = (String)reader["name"];
+                int elo = (int)reader["elo"];
+                reader.Close();
+                
+                Hasht             
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public DBConnector getInstance()
