@@ -69,6 +69,37 @@ namespace vierGewinnt
             }
         }
 
+        public Hashtable getPlayer( String name )
+        {
+            SqlCommand cmd = this.conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM spieler WHERE name = ";
+            cmd.CommandText += name;
+            cmd.CommandText += ";";
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if ( reader.HasRows )
+            {
+                reader.Read();
+                Hashtable player = new Hashtable();
+                player["name"] = (String)reader["name"];
+                player["elo"] = (int)reader["elo"];
+                reader.Close();
+
+                return player;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public int newPlayer ( String name, int elo )
+        {
+            //first checkt if there is a player already
+
+        }
+
         public static DBConnector getInstance()
         {
             if ( instance == null )
