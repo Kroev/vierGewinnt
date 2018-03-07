@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
-
+using System.Collections;
 
 namespace vierGewinnt
 {
@@ -39,6 +38,8 @@ namespace vierGewinnt
 
             //test horizontale gewinnermittlung
             Spielsteuerung control = new Spielsteuerung(7, 6, "red", "yellow");
+            control.setgelbElo(800);
+            control.setRotElo(1000);
             for (int i = 0; i < 5; i++)
             {
                 control.spielzug(i);
@@ -144,10 +145,39 @@ namespace vierGewinnt
             Console.WriteLine("Spielende sollte jetzt auf -2 stehen: spielende = " + control.Spielende);
             Console.WriteLine("Elo Spieler1: " + control.getGelbElo());
             Console.WriteLine("Elo Spieler2: " + control.getRotElo());
+            Hashtable table = new Hashtable();
+            table["name"] = "Ronny";
+            table["elo"] = "789";
+            List<Hashtable> liste = new List<Hashtable>();
+            liste.Add((Hashtable)table.Clone());
+            table["name"] = "Julian";
+            table["elo"] = "666";
+            liste.Add((Hashtable)table.Clone());
+            table["name"] = "Simon";
+            table["elo"] = "456";
+            liste.Add((Hashtable)table.Clone());
+            table["name"] = "Kevin";
+            table["elo"] = "354";
+            liste.Add((Hashtable)table.Clone());
+            table["name"] = "Axel";
+            table["elo"] = "890";
+            liste.Add((Hashtable)table.Clone());
+            table["name"] = "Jessica";
+            table["elo"] = "1002";
+            liste.Add((Hashtable)table.Clone());
+            table["name"] = "Till";
+            table["elo"] = "364";
+            liste.Add((Hashtable)table.Clone());
+            foreach (Hashtable itable in liste) {
+                Console.Write(itable["name"]);
+                Console.Write(" ");
+                Console.WriteLine(itable["elo"]);
+            }
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run();
+            Application.Run(new StatistikForm());
         }
     }
 }
