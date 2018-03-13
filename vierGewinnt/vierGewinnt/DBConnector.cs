@@ -44,12 +44,12 @@ namespace vierGewinnt
          * */
         public Hashtable getPlayer ( int id )
         {
-            SqlCommand cmd = this.conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM spieler WHERE spieler_id = ";
-            cmd.CommandText += id.ToString();
-            cmd.CommandText += ";";
+            String cmd;
+            cmd = "SELECT * FROM spieler WHERE spieler_id = ";
+            cmd += id.ToString();
+            cmd += ";";
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader reader = this.request(cmd);
 
             if ( reader.HasRows )
             {
@@ -71,12 +71,12 @@ namespace vierGewinnt
 
         public Hashtable getPlayer( String name )
         {
-            SqlCommand cmd = this.conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM spieler WHERE name = ";
-            cmd.CommandText += name;
-            cmd.CommandText += ";";
+            String cmd;
+            cmd = "SELECT * FROM spieler WHERE name = ";
+            cmd += name;
+            cmd += ";";
 
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader reader = this.request(cmd);
 
             if ( reader.HasRows )
             {
@@ -108,6 +108,14 @@ namespace vierGewinnt
             }
 
             return instance;
+        }
+
+        private SqlDataReader request(String command)
+        {
+            SqlCommand cmd = this.conn.CreateCommand();
+            cmd.CommandText = command;
+
+            return cmd.ExecuteReader();
         }
     }
 }
