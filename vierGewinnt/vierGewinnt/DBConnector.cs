@@ -72,8 +72,9 @@ namespace vierGewinnt
         public Hashtable getPlayer( String name )
         {
             String cmd;
-            cmd = "SELECT * FROM spieler WHERE name = ";
+            cmd = "SELECT * FROM spieler WHERE name = '";
             cmd += name;
+            cmd += "'";
             cmd += ";";
 
             SqlDataReader reader = this.request(cmd);
