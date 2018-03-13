@@ -91,6 +91,7 @@ namespace vierGewinnt
             }
             else
             {
+                reader.Close();
                 return null;
             }
         }
