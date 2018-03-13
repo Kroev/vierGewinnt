@@ -128,6 +128,25 @@ namespace vierGewinnt
             return 0;
         }
 
+        /**
+         * <returns>
+         *  nothing
+         * </returns>
+         * */
+        public void updatePlayerElo ( String name, int newElo )
+        {
+            String cmd = "UPDATE spieler SET elo = ";
+            cmd += newElo.ToString();
+            cmd += " WHERE name = '";
+            cmd += name;
+            cmd += "';";
+
+            SqlDataReader reader = this.request(cmd);
+            reader.Close();
+
+            return;
+        }
+
         public static DBConnector getInstance()
         {
             if ( instance == null )
