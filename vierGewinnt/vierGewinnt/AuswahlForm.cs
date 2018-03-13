@@ -59,6 +59,10 @@ namespace vierGewinnt
             {
                 MessageBox.Show("Mindestens eine der beiden Eingaben ist leer."); //show
             }
+            else if (sp1==sp2)
+            {
+                MessageBox.Show("Beide Spieler dürfen nicht den selben Namen haben");
+            }
             else if (!(regex.IsMatch(sp1)) || !(regex.IsMatch(sp2)))
             {
                 MessageBox.Show("Die Zeicheneingabe ist Fehlerhaft." +
