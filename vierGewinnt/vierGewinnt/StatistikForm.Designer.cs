@@ -33,10 +33,6 @@
             this._Statistik = new System.Windows.Forms.Label();
             this.dataGridStatistik = new System.Windows.Forms.DataGridView();
             this.spielsteuerungBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SpielerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Elo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.spielendeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aktDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStatistik)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spielsteuerungBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +50,6 @@
             // 
             // dataGridStatistik
             // 
-            this.dataGridStatistik.AutoGenerateColumns = false;
             this.dataGridStatistik.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -65,12 +60,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridStatistik.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridStatistik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridStatistik.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SpielerName,
-            this.Elo,
-            this.spielendeDataGridViewTextBoxColumn,
-            this.aktDataGridViewTextBoxColumn});
-            this.dataGridStatistik.DataSource = this.spielsteuerungBindingSource;
             this.dataGridStatistik.Location = new System.Drawing.Point(164, 49);
             this.dataGridStatistik.Name = "dataGridStatistik";
             this.dataGridStatistik.Size = new System.Drawing.Size(393, 492);
@@ -79,34 +68,6 @@
             // spielsteuerungBindingSource
             // 
             this.spielsteuerungBindingSource.DataSource = typeof(vierGewinnt.Spielsteuerung);
-            // 
-            // SpielerName
-            // 
-            this.SpielerName.FillWeight = 250F;
-            this.SpielerName.HeaderText = "SpielerName";
-            this.SpielerName.Name = "SpielerName";
-            this.SpielerName.ReadOnly = true;
-            this.SpielerName.Width = 250;
-            // 
-            // Elo
-            // 
-            this.Elo.HeaderText = "Elo";
-            this.Elo.Name = "Elo";
-            this.Elo.ReadOnly = true;
-            // 
-            // spielendeDataGridViewTextBoxColumn
-            // 
-            this.spielendeDataGridViewTextBoxColumn.DataPropertyName = "Spielende";
-            this.spielendeDataGridViewTextBoxColumn.HeaderText = "Spielende";
-            this.spielendeDataGridViewTextBoxColumn.Name = "spielendeDataGridViewTextBoxColumn";
-            this.spielendeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aktDataGridViewTextBoxColumn
-            // 
-            this.aktDataGridViewTextBoxColumn.DataPropertyName = "Akt";
-            this.aktDataGridViewTextBoxColumn.HeaderText = "Akt";
-            this.aktDataGridViewTextBoxColumn.Name = "aktDataGridViewTextBoxColumn";
-            this.aktDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // StatistikForm
             // 
@@ -130,10 +91,6 @@
 
         private System.Windows.Forms.Label _Statistik;
         private System.Windows.Forms.DataGridView dataGridStatistik;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SpielerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Elo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn spielendeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aktDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource spielsteuerungBindingSource;
     }
 }
