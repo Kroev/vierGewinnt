@@ -94,10 +94,36 @@ namespace vierGewinnt
             }
         }
 
+        /**
+         * <returns>
+         *  0: created new player
+         *  1: player already exists
+         * </returns>
+         * */
         public int newPlayer ( String name, int elo )
         {
             //first checkt if there is a player already
+            Hashtable spieler = this.getPlayer(name);
+            if ( spieler != null )
+            {
+                //found player, not unique
+                return 1;
+            }
 
+            //create new player
+            String cmd;
+            cmd = "";
+            cmd = "INSERT INTO spieler VALUES ('";
+            cmd += name;
+            cmd += "',";
+            cmd += elo.ToString();
+            cmd += ");";
+
+            SqlDataReader reader = this.request(cmd);
+            reader.Close();
+            
+            //assume everything went well...
+            return 0;
         }
 
         public static DBConnector getInstance()
