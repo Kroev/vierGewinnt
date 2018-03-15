@@ -242,7 +242,7 @@ namespace vierGewinnt
 
         }
 
-        public DataTable Statistikholen()
+        public static DataTable Statistikholen()
         {
             DataTable hashtabelle = new DataTable();
             List<Hashtable> hashliste = new List<Hashtable>();
