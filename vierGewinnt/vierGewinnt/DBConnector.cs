@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -94,6 +95,36 @@ namespace vierGewinnt
                 reader.Close();
                 return null;
             }
+        }
+
+        /**
+         * <returns>
+         *  null if no players found
+         *  otherwise list containing hashtables representing player data
+         * </returns>
+         * */
+        public List<Hashtable> getAllPlayers ()
+        {
+            String cmd = "SELECT * FROM spieler;";
+            SqlDataReader reader = this.request(cmd);
+
+            if ( !reader.HasRows )
+            {
+                //no players found
+                return null;
+            }
+
+            //there are players
+            List<Hashtable> players = new List<Hashtable>();
+            Hashtable player = new Hashtable();
+            while ( reader.Read() )
+            {
+                player["name"] = (String)reader["name"];
+                player["elo"] = (int)reader["elo"];
+                players.Add( (Hashtable)player.Clone() );
+            }
+
+            return players;
         }
 
         /**
