@@ -12,6 +12,9 @@ namespace vierGewinnt
 {
     public partial class StatistikForm : Form
     {
+        private DataTable dt;
+        
+
         public StatistikForm() : base()
         {
            
@@ -21,7 +24,12 @@ namespace vierGewinnt
 
         private void StatistikForm_Load(object sender, EventArgs e)
         {
-
+            dataGridStatistik.Dock = DockStyle.Fill;
+            dt = Spielsteuerung.Statistikholen(); 
+            dataGridStatistik.DataSource = dt;
+            dataGridStatistik.AutoGenerateColumns = true;
+            dataGridStatistik.Columns["Elo"].ReadOnly = true;
+            dataGridStatistik.Columns["Name"].ReadOnly = true;
         }
         
     }
