@@ -248,9 +248,13 @@ namespace vierGewinnt
             List<Hashtable> hashliste = new List<Hashtable>();
             DBConnector con = DBConnector.getInstance();
             hashliste = con.getAllPlayers();
-            foreach (Hashtable hashes in hashliste)
+            if (hashliste != null)
             {
-                hashtabelle.Rows.Add(hashes["name"], hashes["elo"]);
+                foreach (Hashtable hashes in hashliste)
+                {
+                    hashtabelle.Rows.Add(hashes["name"], hashes["elo"]);
+                }
+
             }
             return hashtabelle;
         }
