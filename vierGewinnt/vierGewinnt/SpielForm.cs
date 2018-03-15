@@ -19,12 +19,21 @@ namespace vierGewinnt
         private Label akt;
         private Label SP1;
         private Label SP2;
-        //Aufruf des Base Konstruktors
+        private Label SP1Elo;
+        private Label SP2Elo;
+
+        /**
+         * Erzeugt neue SpielForm mit Spielernamen.
+         * Spielsteuerung wird hier mit konstanten (7x6) Spielfeld instanziiert.
+         * 
+         * \param name1 Name des Spielers 1
+         * \param name2 Name des Spielers 2
+         */
         public SpielForm(String name1, String name2):base() 
         {
             this.spielfeld = new List<VGLabel>();
             this.table = new System.Windows.Forms.TableLayoutPanel();
-            this.control = new Spielsteuerung(7, 6, name1, name2);
+            this.control = new Spielsteuerung(7, 6,name1,name2);
             InitializeComponent();
 
             // 
@@ -32,7 +41,7 @@ namespace vierGewinnt
             // 
             this.table.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             //Spalten
-            this.table.ColumnCount = 9;
+            this.table.ColumnCount = 10;
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
@@ -41,7 +50,8 @@ namespace vierGewinnt
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.28572F));
-            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 150.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.28572F));
+            this.table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.28572F));
             this.table.Location = new System.Drawing.Point(1, 1);
             this.table.Name = "table";
             //Zeilen
@@ -127,19 +137,32 @@ namespace vierGewinnt
 
             //Erzeugen des Labels mit dem Namen von Spieler 1
 
-            this.SP1 = this.initLabel("label", name1);
+            this.SP1 = this.initLabel("label", control.getGelbName());
             this.table.Controls.Add(this.SP1, 8, 4);
 
             //Erzeugen des Labels mit dem Namen von Spieler 2
 
-            this.SP2 = this.initLabel("label", name2);
+            this.SP2 = this.initLabel("label", control.getRotName());
             this.table.Controls.Add(this.SP2, 8, 5);
 
+            //Erzeugen des Labels mit der Elo von Spieler 1
+
+            this.SP1Elo = this.initLabel("label","Elo: "+control.getGelbElo());
+            this.table.Controls.Add(this.SP1Elo, 9, 4);
+
+            //Erzeugen des Labels mit der Elo von Spieler 2
+
+            this.SP2Elo = this.initLabel("label","Elo: "+control.getRotElo());
+            this.table.Controls.Add(this.SP2Elo, 9, 5);
 
             this.BackColor = Color.FromArgb(255,0,0,190);
 
         }
 
+        /**
+         * Listener auf die SpaltenButtons, löst den Spielzug aus.
+         * führt auf Spielsteuerung Spielzug aus und setzt die Spielsteine.
+         */
         private void btnClick(Object sender, EventArgs e)
         {
             //Typ von Sender zu VGButton geändert
@@ -194,11 +217,19 @@ namespace vierGewinnt
 
         }
 
+        /**
+         * Liefert das Label an der angegebenen Koordinate
+         * \param x x-Koordinate
+         * \param y y-Koordinate
+         * 
+         * \returns VGLabel VGLabel an den angegebenen Koordinaten
+         * \returns null falls das Label nicht existiert.
+         */
         private VGLabel findLabel(int x,int y)
         {
             foreach (VGLabel label in this.spielfeld)
             {
-                if (label.Column==x & label.Row==y)
+                if (label.Column==x && label.Row==y)
                 {
                     return label;
                 }
@@ -206,6 +237,17 @@ namespace vierGewinnt
             //Null Pointer wird zurückgegeben; man kann nicht drauf zugreifen
             return null;
         }
+
+        /**
+         * Neues Label wird initialisiert
+         * Ausgelagerte Initialisierung, setzt Größe, Name und Text.
+         * \param name Name des Labels
+         * \param text Text, welcher auf dem Label steht
+         * \param sizeX breite
+         * \param sizeY höhe
+         * 
+         * \returns Label neu erzeugtes Label
+         */
         private Label initLabel(String name, String text,int sizeX, int sizeY)
         {
 
@@ -225,6 +267,11 @@ namespace vierGewinnt
 
             return lbl;
         }
+
+        /**
+         * \overload 
+         * Setzt Größe fix auf 79x68 Px.
+         */
         private Label initLabel(String name, String text)
         {
             return this.initLabel(name, text, 79, 68);
