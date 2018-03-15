@@ -245,6 +245,8 @@ namespace vierGewinnt
         public static DataTable Statistikholen()
         {
             DataTable hashtabelle = new DataTable();
+            hashtabelle.Columns.Add("name", typeof(string));
+            hashtabelle.Columns.Add("elo", typeof(int));
             List<Hashtable> hashliste = new List<Hashtable>();
             DBConnector con = DBConnector.getInstance();
             hashliste = con.getAllPlayers();
@@ -283,11 +285,11 @@ namespace vierGewinnt
             if (angelegt == 1)
             {
                 usertable = con.getPlayer(namerot);
-                this.gelb = new Spieler(namerot, 1, (int)usertable["elo"]);
+                this.rot = new Spieler(namerot, 1, (int)usertable["elo"]);
             }
             else
             {
-                this.gelb = new Spieler(namerot, 1, defelo);
+                this.rot = new Spieler(namerot, 1, defelo);
             }
 
             return 0;
