@@ -25,11 +25,11 @@ namespace vierGewinnt
         private void StatistikForm_Load(object sender, EventArgs e)
         {
             dataGridStatistik.Dock = DockStyle.Fill;
-            //dt = Spielsteuerung.Statistikholen(); 
+            dt = Spielsteuerung.Statistikholen(); 
             dataGridStatistik.DataSource = dt;
             dataGridStatistik.AutoGenerateColumns = true;
-            //dataGridStatistik.Columns["Elo"].ReadOnly = true;
-            //dataGridStatistik.Columns["Name"].ReadOnly = true;
+            dataGridStatistik.Columns["Elo"].ReadOnly = true;
+            dataGridStatistik.Columns["Name"].ReadOnly = true;
         }
         
     }
