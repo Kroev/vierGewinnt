@@ -10,12 +10,13 @@ namespace vierGewinnt
     {
         String name;
         int wert;
-        int elo=600;
+        int elo;
 
-        public Spieler (String name, int wert)
+        public Spieler (String name, int wert, int elo)
         {
             this.name = name;
             this.wert = wert;
+            this.elo = elo;
         }
 
         public int Elo

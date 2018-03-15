@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ namespace vierGewinnt
         private Spieler rot; //Spieler 2 von Wert her
         private int akt;
         private int spielende; //0 -> spiel läuft; akt -> gewonnen, -2 -> remis
+        private DataTable hashtabelle;
 
         /**
          * Erzeugt eine neue Spielsteuerung mit einem Spielfeld mit der angegebenen Höhe
@@ -23,16 +26,7 @@ namespace vierGewinnt
         public Spielsteuerung (int width, int height, String name1, String name2)
         {
             this.spielfeld = new Spielfeld(height, width);
-            if (name1 == "")
-            {
-                name1 = "Spieler1";
-            }
-            if (name2 == "")
-            {
-                name2 = "Spieler2";
-            }
-            this.gelb = new Spieler(name1, 1);
-            this.rot = new Spieler(name2, 2);
+            this.Spieleranlegen(name1, name2);
             this.akt = 1;
             this.spielende = 0;
         }
@@ -66,6 +60,7 @@ namespace vierGewinnt
                     this.spielende = this.akt;
                     //elorechnung
                     elorechnung(this.spielende);
+                    //update db funktion
                 }
                 else if ( gewinn == -2 )
                 {
@@ -240,6 +235,46 @@ namespace vierGewinnt
             return 0;
 
 
+        }
+
+        public DataTable Statistikholen()
+        {
+            hashtabelle = new DataTable();
+            //hashtabelle = funktion von kevin
+            return hashtabelle;
+        }
+
+        public int Spieleranlegen(String namegelb, String namerot)
+        {
+            int angelegt = 0;
+            int defelo = 600;
+            Hashtable usertable = new Hashtable();
+
+            //gelben Spieler in DB und als Spieler anlegen
+            angelegt = DBConnector.newplayer(namegelb,defelo);
+            if (angelegt == 1)
+            {
+                usertable = DBConnector.getplayer(namegelb);
+                this.gelb = new Spieler(namegelb, 1, (int)usertable["elo"]);
+            }
+            else
+            {
+                this.gelb = new Spieler(namegelb, 1, defelo);
+            }
+
+            //roten Spieler in DB und als Spieler anlegen
+            angelegt = DBConnector.newplayer(namerot, defelo);
+            if (angelegt == 1)
+            {
+                usertable = DBConnector.getplayer(namerot);
+                this.gelb = new Spieler(namerot, 1, (int)usertable["elo"]);
+            }
+            else
+            {
+                this.gelb = new Spieler(namerot, 1, defelo);
+            }
+
+            return 0;
         }
 
         public int Spielende
