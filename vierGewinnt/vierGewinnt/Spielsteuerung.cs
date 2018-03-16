@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ namespace vierGewinnt
         private Spieler rot; //Spieler 2 von Wert her
         private int akt;
         private int spielende; //0 -> spiel läuft; akt -> gewonnen, -2 -> remis
+        private DataTable hashtabelle;
 
         /**
          * Erzeugt eine neue Spielsteuerung mit einem Spielfeld mit der angegebenen Höhe
@@ -23,16 +26,7 @@ namespace vierGewinnt
         public Spielsteuerung (int width, int height, String name1, String name2)
         {
             this.spielfeld = new Spielfeld(height, width);
-            if (name1 == "")
-            {
-                name1 = "Spieler1";
-            }
-            if (name2 == "")
-            {
-                name2 = "Spieler2";
-            }
-            this.gelb = new Spieler(name1, 1);
-            this.rot = new Spieler(name2, 2);
+            this.Spieleranlegen(name1, name2);
             this.akt = 1;
             this.spielende = 0;
         }
@@ -64,10 +58,15 @@ namespace vierGewinnt
                 if (gewinn > 0)
                 {
                     this.spielende = this.akt;
+                    //elorechnung
+                    elorechnung(this.spielende);
+                    //update db funktion
                 }
                 else if ( gewinn == -2 )
                 {
                     this.spielende = -2;
+                    //elorechnung
+                    elorechnung(this.spielende);
                 }
                 else
                 {
@@ -203,6 +202,81 @@ namespace vierGewinnt
             }
         }
 
+        public int elorechnung(int winner)
+        {
+            float eloaltgelb = gelb.Elo;
+            float eloaltrot = rot.Elo;
+            float eloneugelb;
+            float eloneurot;
+            float winloose = 0;
+            float K = 32;
+            float C = 200;
+            float a = 1; //setzen a=1 als float zur korrekten Berechnung der Werte
+            float b = 2; //setzen b=2 als float zur korrekten Berechnung der Werte
+
+            switch (winner)
+            {
+                case 1:
+                    winloose = 1;
+                    break;
+                case 2:
+                    winloose = -1;
+                    break;
+                case -2:
+                    winloose = 0;
+                    break;
+                default:
+                    return -1;
+            }
+            eloneugelb = eloaltgelb + (K / b) * (winloose + (a / b) * ((eloaltrot - eloaltgelb) / C));
+            eloneurot = eloaltrot + (K / b) * (-a*winloose + (a / b) * ((eloaltgelb - eloaltrot) / C));
+            gelb.Elo = (int)eloneugelb;
+            rot.Elo = (int)eloneurot;
+            return 0;
+
+
+        }
+
+        public DataTable Statistikholen()
+        {
+            hashtabelle = new DataTable();
+            //hashtabelle = funktion von kevin
+            return hashtabelle;
+        }
+
+        public int Spieleranlegen(String namegelb, String namerot)
+        {
+            int angelegt = 0;
+            int defelo = 600;
+            Hashtable usertable = new Hashtable();
+
+            //gelben Spieler in DB und als Spieler anlegen
+            angelegt = DBConnector.newplayer(namegelb,defelo);
+            if (angelegt == 1)
+            {
+                usertable = DBConnector.getplayer(namegelb);
+                this.gelb = new Spieler(namegelb, 1, (int)usertable["elo"]);
+            }
+            else
+            {
+                this.gelb = new Spieler(namegelb, 1, defelo);
+            }
+
+            //roten Spieler in DB und als Spieler anlegen
+            angelegt = DBConnector.newplayer(namerot, defelo);
+            if (angelegt == 1)
+            {
+                usertable = DBConnector.getplayer(namerot);
+                this.gelb = new Spieler(namerot, 1, (int)usertable["elo"]);
+            }
+            else
+            {
+                this.gelb = new Spieler(namerot, 1, defelo);
+            }
+
+            return 0;
+        }
+
         public int Spielende
         {
             get
@@ -217,6 +291,25 @@ namespace vierGewinnt
             {
                 return akt;
             }
+        }
+
+        //abstraction of Spieler object
+        public String getRotName ()
+        {
+            return this.rot.Name;
+        }
+        public String getGelbName ()
+        {
+            return this.gelb.Name;
+        }
+
+        public int getRotElo ()
+        {
+            return this.rot.Elo;
+        }
+        public int getGelbElo ()
+        {
+            return this.gelb.Elo;
         }
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="AuswahlForm.Designer.cs">
       <DependentUpon>AuswahlForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBConnector.cs" />
     <Compile Include="Spieler.cs" />
     <Compile Include="Spielfeld.cs" />
     <Compile Include="SpielForm.cs">
