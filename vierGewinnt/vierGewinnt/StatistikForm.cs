@@ -26,6 +26,7 @@ namespace vierGewinnt
         {
             dataGridStatistik.DefaultCellStyle.Font = new Font("Tahoma", 13);
             dataGridStatistik.AllowUserToAddRows = false;
+            dataGridStatistik.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void btnStaSpieler_Click(object sender, EventArgs e)
