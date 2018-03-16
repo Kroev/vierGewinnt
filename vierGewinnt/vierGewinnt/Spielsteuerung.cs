@@ -253,7 +253,7 @@ namespace vierGewinnt
             DataTable hashtabelle = new DataTable();
             List<Hashtable> hashliste = new List<Hashtable>();
             DBConnector con = DBConnector.getInstance();
-            hashliste = con.getGames();
+            hashliste = con.getGameRecords();
             hashtabelle = StatistikUmformen(hashliste);
             return hashtabelle;
         }
@@ -267,9 +267,14 @@ namespace vierGewinnt
                 {
                     hashtabelle.Columns.Add(key, typeof(string));
                 }
-                foreach (Hashtable hashes in hashliste)
+                foreach (Hashtable hash in hashliste)
                 {
-                    hashtabelle.Rows.Add(hashes);
+                    DataRow row = hashtabelle.NewRow();
+                    foreach (string key in hash.Keys)
+                    {
+                        row[key] = hash[key];
+                    }
+                    hashtabelle.Rows.Add(row);
                 }
             }
             return hashtabelle;
