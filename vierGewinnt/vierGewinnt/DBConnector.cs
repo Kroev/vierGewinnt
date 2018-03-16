@@ -210,13 +210,25 @@ namespace vierGewinnt
             Hashtable record = new Hashtable();
             while (reader.Read() )
             {
-                record["spieler1"] = reader["spieler1"].ToString();
-                record["spieler2"] = reader["spieler2"].ToString();
+                record["spieler1"] = reader["spieler1"];
+                record["spieler2"] = reader["spieler2"];
                 record["ergebnis"] = reader["ergebnis"].ToString();
                 records.Add( (Hashtable)record.Clone() );
             }
+
+            List<Hashtable> results = new List<Hashtable>();
+            //String baseCmd = "SELECT name FROM spieler WHERE spieler_id = ";
+            //cmd = "";
+            foreach ( Hashtable game in records )
+            {
+                Hashtable player1 = this.getPlayer((int)game["spieler1"]);
+                Hashtable player2 = this.getPlayer((int)game["spieler2"]);
+                game["spieler1"] = player1["name"];
+                game["spieler2"] = player2["name"];
+                results.Add((Hashtable)game.Clone());
+            }
             reader.Close();
-            return records;
+            return results;
         }
 
         /**
