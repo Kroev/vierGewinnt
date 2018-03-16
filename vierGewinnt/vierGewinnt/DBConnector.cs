@@ -139,7 +139,7 @@ namespace vierGewinnt
          * */
          public int recordGame( String spieler1, String spieler2, int ergebnis )
         {
-            String baseCmd = "SELECT id FROM spieler WHERE name = '";
+            String baseCmd = "SELECT spieler_id FROM spieler WHERE name = '";
 
             String cmd = baseCmd;
             cmd += spieler1;
@@ -150,7 +150,7 @@ namespace vierGewinnt
                 return -1;
             }
             reader.Read();
-            long id1 = (long)reader["id"];
+            long id1 = (long)reader["spieler_id"];
             reader.Close();
 
             //get id of player2
@@ -163,7 +163,7 @@ namespace vierGewinnt
                 return -2;
             }
             reader.Read();
-            long id2 = (long)reader["id"];
+            long id2 = (long)reader["spieler_id"];
             reader.Close();
 
             //insert new game record
