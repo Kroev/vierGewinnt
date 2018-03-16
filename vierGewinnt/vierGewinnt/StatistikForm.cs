@@ -36,6 +36,8 @@ namespace vierGewinnt
             dataGridStatistik.AutoGenerateColumns = true;
             dataGridStatistik.Columns["Elo"].ReadOnly = true;
             dataGridStatistik.Columns["Name"].ReadOnly = true;
+            dataGridStatistik.Columns["Name"].DisplayIndex = 0;
+            dataGridStatistik.Columns["Elo"].DisplayIndex = 1;
             dataGridStatistik.Sort(dataGridStatistik.Columns["Elo"], ListSortDirection.Descending);
         }
 
@@ -47,6 +49,9 @@ namespace vierGewinnt
             dataGridStatistik.Columns["Ergebnis"].ReadOnly = true;
             dataGridStatistik.Columns["Spieler1"].ReadOnly = true;
             dataGridStatistik.Columns["Spieler2"].ReadOnly = true;
+            dataGridStatistik.Columns["Spieler1"].DisplayIndex = 0;
+            dataGridStatistik.Columns["Spieler2"].DisplayIndex = 1;
+            dataGridStatistik.Columns["Ergebnis"].DisplayIndex = 2;
         }
     }
 }
