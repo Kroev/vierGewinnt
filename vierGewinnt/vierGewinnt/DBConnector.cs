@@ -43,7 +43,7 @@ namespace vierGewinnt
          * hashtable with data of the player if found, null if none found
          * </returns>
          * */
-        public Hashtable getPlayer ( int id )
+        public Hashtable getPlayer ( long id )
         {
             String cmd;
             cmd = "SELECT * FROM spieler WHERE spieler_id = ";
@@ -66,6 +66,7 @@ namespace vierGewinnt
             }
             else
             {
+                reader.Close();
                 return null;
             }
         }
@@ -216,7 +217,18 @@ namespace vierGewinnt
                 records.Add( (Hashtable)record.Clone() );
             }
             reader.Close();
-            return records;
+
+            List<Hashtable> results = new List<Hashtable>();
+            foreach ( Hashtable result in records )
+            {
+                Hashtable player1 = this.getPlayer((long)result["spieler1"]);
+                Hashtable player2 = this.getPlayer((long)result["spieler2"]);
+                result["spieler1"] = player1["name"];
+                result["spieler2"] = player2["name"];
+                results.Add((Hashtable)result.Clone());
+            }
+            
+            return results;
         }
 
         /**
