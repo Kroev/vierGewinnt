@@ -191,6 +191,36 @@ namespace vierGewinnt
 
         /**
          * <returns>
+         *  list of hashtables containing all records
+         *  null if no records available
+         * </returns>
+         * */
+        public List<Hashtable> getGameRecords()
+        {
+            String cmd = "SELECT * FROM spiele;";
+            SqlDataReader reader = this.request(cmd);
+
+            if ( !reader.HasRows )
+            {
+                reader.Close();
+                return null;
+            }
+
+            List<Hashtable> records = new List<Hashtable>();
+            Hashtable record = new Hashtable();
+            while (reader.Read() )
+            {
+                record["spieler1"] = (string)reader["spieler1"];
+                record["spieler2"] = (string)reader["spieler2"];
+                record["ergebnis"] = (string)reader["ergebnis"];
+                records.Add( (Hashtable)record.Clone() );
+            }
+            reader.Close();
+            return records;
+        }
+
+        /**
+         * <returns>
          *  0: created new player
          *  1: player already exists
          * </returns>
