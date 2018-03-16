@@ -60,13 +60,18 @@ namespace vierGewinnt
                     this.spielende = this.akt;
                     //elorechnung
                     elorechnung(this.spielende);
-                    //update db funktion
+                    DBConnector con = DBConnector.getInstance();
+                    con.updatePlayerElo(gelb.Name, gelb.Elo);
+                    con.updatePlayerElo(rot.Name, rot.Elo);
                 }
                 else if ( gewinn == -2 )
                 {
                     this.spielende = -2;
                     //elorechnung
                     elorechnung(this.spielende);
+                    DBConnector con = DBConnector.getInstance();
+                    con.updatePlayerElo(gelb.Name, gelb.Elo);
+                    con.updatePlayerElo(rot.Name, rot.Elo);
                 }
                 else
                 {
@@ -239,8 +244,18 @@ namespace vierGewinnt
 
         public DataTable Statistikholen()
         {
-            hashtabelle = new DataTable();
-            //hashtabelle = funktion von kevin
+            DataTable hashtabelle = new DataTable();
+            List<Hashtable> hashliste = new List<Hashtable>();
+            DBConnector con = DBConnector.getInstance();
+            hashliste = con.getAllPlayers();
+            if (hashliste != null)
+            {
+                foreach (Hashtable hashes in hashliste)
+                {
+                    hashtabelle.Rows.Add(hashes["name"], hashes["elo"]);
+                }
+
+            }
             return hashtabelle;
         }
 
@@ -251,10 +266,11 @@ namespace vierGewinnt
             Hashtable usertable = new Hashtable();
 
             //gelben Spieler in DB und als Spieler anlegen
-            angelegt = DBConnector.newplayer(namegelb,defelo);
+            DBConnector con = DBConnector.getInstance();
+            angelegt = con.newPlayer(namegelb,defelo);
             if (angelegt == 1)
             {
-                usertable = DBConnector.getplayer(namegelb);
+                usertable = con.getPlayer(namegelb);
                 this.gelb = new Spieler(namegelb, 1, (int)usertable["elo"]);
             }
             else
@@ -263,10 +279,10 @@ namespace vierGewinnt
             }
 
             //roten Spieler in DB und als Spieler anlegen
-            angelegt = DBConnector.newplayer(namerot, defelo);
+            angelegt = con.newPlayer(namerot, defelo);
             if (angelegt == 1)
             {
-                usertable = DBConnector.getplayer(namerot);
+                usertable = con.getPlayer(namerot);
                 this.gelb = new Spieler(namerot, 1, (int)usertable["elo"]);
             }
             else
