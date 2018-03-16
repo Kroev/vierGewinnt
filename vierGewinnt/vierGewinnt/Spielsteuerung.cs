@@ -267,9 +267,14 @@ namespace vierGewinnt
                 {
                     hashtabelle.Columns.Add(key, typeof(string));
                 }
-                foreach (Hashtable hashes in hashliste)
+                foreach (Hashtable hash in hashliste)
                 {
-                    hashtabelle.Rows.Add(hashes);
+                    DataRow row = hashtabelle.NewRow();
+                    foreach (string key in hash.Keys)
+                    {
+                        row[key] = hash[key];
+                    }
+                    hashtabelle.Rows.Add(row);
                 }
             }
             return hashtabelle;
