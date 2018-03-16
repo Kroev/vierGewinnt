@@ -21,13 +21,6 @@ namespace vierGewinnt
             InitializeComponent();
 
         }
-<<<<<<< HEAD
-
-        private void StatistikForm_Load(object sender, EventArgs e)
-        {
-            dataGridStatistik.Dock = DockStyle.Fill;
-            dt = Spielsteuerung.Statistikholen(); 
-=======
         
         private void StatistikForm_Load(object sender, EventArgs e)
         {
@@ -39,15 +32,10 @@ namespace vierGewinnt
         private void btnStaSpieler_Click(object sender, EventArgs e)
         {
             dt = Spielsteuerung.StatistikGetPlayer();
->>>>>>> endtoendtest
             dataGridStatistik.DataSource = dt;
             dataGridStatistik.AutoGenerateColumns = true;
             dataGridStatistik.Columns["Elo"].ReadOnly = true;
             dataGridStatistik.Columns["Name"].ReadOnly = true;
-<<<<<<< HEAD
-        }
-        
-=======
             dataGridStatistik.Columns["Name"].DisplayIndex = 0;
             dataGridStatistik.Columns["Elo"].DisplayIndex = 1;
             dataGridStatistik.Columns["Elo"].HeaderText = "Elo";
@@ -70,6 +58,5 @@ namespace vierGewinnt
             dataGridStatistik.Columns["Spieler2"].HeaderText = "Spieler2";
             dataGridStatistik.Columns["Ergebnis"].HeaderText = "Ergebnis";
         }
->>>>>>> endtoendtest
     }
 }
