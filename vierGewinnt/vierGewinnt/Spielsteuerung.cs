@@ -60,14 +60,14 @@ namespace vierGewinnt
                     this.spielende = this.akt;
                     //elorechnung
                     elorechnung(this.spielende);
-                    Gameupdate(gewinn);
+                    Gameupdate(this.spielende);
                 }
                 else if ( gewinn == -2 )
                 {
                     this.spielende = -2;
                     //elorechnung
                     elorechnung(this.spielende);
-                    Gameupdate(gewinn);
+                    Gameupdate(this.spielende);
                 }
                 else
                 {
