@@ -24,7 +24,8 @@ namespace vierGewinnt
         
         private void StatistikForm_Load(object sender, EventArgs e)
         {
-            
+            dataGridStatistik.DefaultCellStyle.Font = new Font("Tahoma", 13);
+            dataGridStatistik.AllowUserToAddRows = false;
         }
 
         private void btnStaSpieler_Click(object sender, EventArgs e)
@@ -47,7 +48,6 @@ namespace vierGewinnt
             dataGridStatistik.Columns["Ergebnis"].ReadOnly = true;
             dataGridStatistik.Columns["Spieler1"].ReadOnly = true;
             dataGridStatistik.Columns["Spieler2"].ReadOnly = true;
-            dataGridStatistik.AllowUserToAddRows = false;
         }
     }
 }
