@@ -210,9 +210,9 @@ namespace vierGewinnt
             Hashtable record = new Hashtable();
             while (reader.Read() )
             {
-                record["spieler1"] = (string)reader["spieler1"];
-                record["spieler2"] = (string)reader["spieler2"];
-                record["ergebnis"] = (string)reader["ergebnis"];
+                record["spieler1"] = reader["spieler1"].ToString();
+                record["spieler2"] = reader["spieler2"].ToString();
+                record["ergebnis"] = reader["ergebnis"].ToString();
                 records.Add( (Hashtable)record.Clone() );
             }
             reader.Close();
