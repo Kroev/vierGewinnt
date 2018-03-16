@@ -15,7 +15,7 @@ namespace vierGewinnt
         private Spieler rot; //Spieler 2 von Wert her
         private int akt;
         private int spielende; //0 -> spiel läuft; akt -> gewonnen, -2 -> remis
-        private DataTable hashtabelle;
+        
 
         /**
          * Erzeugt eine neue Spielsteuerung mit einem Spielfeld mit der angegebenen Höhe
@@ -60,18 +60,14 @@ namespace vierGewinnt
                     this.spielende = this.akt;
                     //elorechnung
                     elorechnung(this.spielende);
-                    DBConnector con = DBConnector.getInstance();
-                    con.updatePlayerElo(gelb.Name, gelb.Elo);
-                    con.updatePlayerElo(rot.Name, rot.Elo);
+                    Gameupdate(this.spielende);
                 }
                 else if ( gewinn == -2 )
                 {
                     this.spielende = -2;
                     //elorechnung
                     elorechnung(this.spielende);
-                    DBConnector con = DBConnector.getInstance();
-                    con.updatePlayerElo(gelb.Name, gelb.Elo);
-                    con.updatePlayerElo(rot.Name, rot.Elo);
+                    Gameupdate(this.spielende);
                 }
                 else
                 {
@@ -242,21 +238,45 @@ namespace vierGewinnt
 
         }
 
-        public static DataTable Statistikholen()
+
+        public static DataTable StatistikGetPlayer()
         {
             DataTable hashtabelle = new DataTable();
-            hashtabelle.Columns.Add("name", typeof(string));
-            hashtabelle.Columns.Add("elo", typeof(int));
             List<Hashtable> hashliste = new List<Hashtable>();
             DBConnector con = DBConnector.getInstance();
             hashliste = con.getAllPlayers();
+            hashtabelle = StatistikUmformen(hashliste);
+            return hashtabelle;
+        }
+
+        public static DataTable StatistikGetGame()
+        {
+            DataTable hashtabelle = new DataTable();
+            List<Hashtable> hashliste = new List<Hashtable>();
+            DBConnector con = DBConnector.getInstance();
+            hashliste = con.getGameRecords();
+            hashtabelle = StatistikUmformen(hashliste);
+            return hashtabelle;
+        }
+
+        private static DataTable StatistikUmformen(List<Hashtable> hashliste)
+        {
+            DataTable hashtabelle = new DataTable();
             if (hashliste != null)
             {
-                foreach (Hashtable hashes in hashliste)
+                foreach (string key in hashliste[0].Keys)
                 {
-                    hashtabelle.Rows.Add(hashes["name"], hashes["elo"]);
+                    hashtabelle.Columns.Add(key, typeof(string));
                 }
-
+                foreach (Hashtable hash in hashliste)
+                {
+                    DataRow row = hashtabelle.NewRow();
+                    foreach (string key in hash.Keys)
+                    {
+                        row[key] = hash[key];
+                    }
+                    hashtabelle.Rows.Add(row);
+                }
             }
             return hashtabelle;
         }
@@ -285,14 +305,22 @@ namespace vierGewinnt
             if (angelegt == 1)
             {
                 usertable = con.getPlayer(namerot);
-                this.rot = new Spieler(namerot, 1, (int)usertable["elo"]);
+                this.rot = new Spieler(namerot, 2, (int)usertable["elo"]);
             }
             else
             {
-                this.rot = new Spieler(namerot, 1, defelo);
+                this.rot = new Spieler(namerot, 2, defelo);
             }
 
             return 0;
+        }
+
+        public void Gameupdate(int result)
+        {
+            DBConnector con = DBConnector.getInstance();
+            con.updatePlayerElo(gelb.Name, gelb.Elo);
+            con.updatePlayerElo(rot.Name, rot.Elo);
+            con.recordGame(gelb.Name, rot.Name, result);
         }
 
         public int Spielende

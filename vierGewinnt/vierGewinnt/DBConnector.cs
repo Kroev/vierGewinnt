@@ -130,6 +130,96 @@ namespace vierGewinnt
         }
 
         /**
+         *  <returns>
+         *   0: everything went well
+         *   -1: spieler1 not found
+         *   -2: spieler2 not found
+         *   -3: insert did not work
+         *  </returns>
+         * */
+         public int recordGame( String spieler1, String spieler2, int ergebnis )
+        {
+            String baseCmd = "SELECT spieler_id FROM spieler WHERE name = '";
+
+            String cmd = baseCmd;
+            cmd += spieler1;
+            cmd += "';";
+            SqlDataReader reader = this.request(cmd);
+            if ( !reader.HasRows )
+            {
+                return -1;
+            }
+            reader.Read();
+            long id1 = (long)reader["spieler_id"];
+            reader.Close();
+
+            //get id of player2
+            cmd = baseCmd;
+            cmd += spieler2;
+            cmd += "';";
+            reader = this.request(cmd);
+            if ( !reader.HasRows )
+            {
+                return -2;
+            }
+            reader.Read();
+            long id2 = (long)reader["spieler_id"];
+            reader.Close();
+
+            //insert new game record
+            cmd = "INSERT INTO spiele VALUES (";
+            cmd += id1.ToString();
+            cmd += ",";
+            cmd += id2.ToString();
+            cmd += ",'";
+            cmd += ergebnis.ToString();
+            cmd += "');";
+
+            try
+            {
+                reader = this.request(cmd);
+            }
+            catch
+            {
+                reader.Close();
+                return -3;
+            }
+
+            reader.Close();
+            return 0;
+        }
+
+        /**
+         * <returns>
+         *  list of hashtables containing all records
+         *  null if no records available
+         * </returns>
+         * */
+        public List<Hashtable> getGameRecords()
+        {
+            String cmd = "SELECT * FROM spiele;";
+            SqlDataReader reader = this.request(cmd);
+
+            if ( !reader.HasRows )
+            {
+                reader.Close();
+                return null;
+            }
+
+            List<Hashtable> records = new List<Hashtable>();
+            Hashtable record = new Hashtable();
+            while (reader.Read() )
+            {
+                record["spieler1"] = reader["spieler1"].ToString();
+                record["spieler2"] = reader["spieler2"].ToString();
+                record["ergebnis"] = reader["ergebnis"].ToString();
+                records.Add( (Hashtable)record.Clone() );
+            }
+            reader.Close();
+            return records;
+        }
+
+        /**
          * <returns>
          *  0: created new player
          *  1: player already exists
