@@ -299,11 +299,11 @@ namespace vierGewinnt
             if (angelegt == 1)
             {
                 usertable = con.getPlayer(namerot);
-                this.rot = new Spieler(namerot, 1, (int)usertable["elo"]);
+                this.rot = new Spieler(namerot, 2, (int)usertable["elo"]);
             }
             else
             {
-                this.rot = new Spieler(namerot, 1, defelo);
+                this.rot = new Spieler(namerot, 2, defelo);
             }
 
             return 0;
