@@ -111,6 +111,7 @@ namespace vierGewinnt
             if ( !reader.HasRows )
             {
                 //no players found
+                reader.Close();
                 return null;
             }
 
@@ -124,7 +125,68 @@ namespace vierGewinnt
                 players.Add( (Hashtable)player.Clone() );
             }
 
+            reader.Close();
             return players;
+        }
+
+        /**
+         *  <returns>
+         *   0: everything went well
+         *   -1: spieler1 not found
+         *   -2: spieler2 not found
+         *   -3: insert did not work
+         *  </returns>
+         * */
+         public int recordGame( String spieler1, String spieler2, int ergebnis )
+        {
+            String baseCmd = "SELECT id FROM spieler WHERE name = '";
+
+            String cmd = baseCmd;
+            cmd += spieler1;
+            cmd += "';";
+            SqlDataReader reader = this.request(cmd);
+            if ( !reader.HasRows )
+            {
+                return -1;
+            }
+            reader.Read();
+            long id1 = (long)reader["id"];
+            reader.Close();
+
+            //get id of player2
+            cmd = baseCmd;
+            cmd += spieler2;
+            cmd += "';";
+            reader = this.request(cmd);
+            if ( !reader.HasRows )
+            {
+                return -2;
+            }
+            reader.Read();
+            long id2 = (long)reader["id"];
+            reader.Close();
+
+            //insert new game record
+            cmd = "INSERT INTO spiele VALUES (";
+            cmd += id1.ToString();
+            cmd += ",";
+            cmd += id2.ToString();
+            cmd += ",'";
+            cmd += ergebnis.ToString();
+            cmd += "');";
+
+            try
+            {
+                reader = this.request(cmd);
+            }
+            catch
+            {
+                reader.Close();
+                return -3;
+            }
+
+            reader.Close();
+            return 0;
         }
 
         /**
