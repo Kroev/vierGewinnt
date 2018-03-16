@@ -253,7 +253,7 @@ namespace vierGewinnt
             DataTable hashtabelle = new DataTable();
             List<Hashtable> hashliste = new List<Hashtable>();
             DBConnector con = DBConnector.getInstance();
-            hashliste = con.getGames();
+            hashliste = con.getGameRecords();
             hashtabelle = StatistikUmformen(hashliste);
             return hashtabelle;
         }
