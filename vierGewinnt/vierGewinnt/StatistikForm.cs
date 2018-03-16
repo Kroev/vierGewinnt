@@ -31,7 +31,6 @@ namespace vierGewinnt
 
         private void btnStaSpieler_Click(object sender, EventArgs e)
         {
-            dataGridStatistik.Dock = DockStyle.Fill;
             dt = Spielsteuerung.StatistikGetPlayer();
             dataGridStatistik.DataSource = dt;
             dataGridStatistik.AutoGenerateColumns = true;
@@ -42,7 +41,6 @@ namespace vierGewinnt
 
         private void btnStaSpiele_Click(object sender, EventArgs e)
         {
-            dataGridStatistik.Dock = DockStyle.Fill;
             dt = Spielsteuerung.StatistikGetGame();
             dataGridStatistik.DataSource = dt;
             dataGridStatistik.AutoGenerateColumns = true;
