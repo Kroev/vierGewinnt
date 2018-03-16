@@ -111,6 +111,7 @@ namespace vierGewinnt
             if ( !reader.HasRows )
             {
                 //no players found
+                reader.Close();
                 return null;
             }
 
@@ -124,6 +125,7 @@ namespace vierGewinnt
                 players.Add( (Hashtable)player.Clone() );
             }
 
+            reader.Close();
             return players;
         }
 
