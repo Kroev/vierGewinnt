@@ -31,7 +31,7 @@ namespace vierGewinnt
         private void btnStaSpieler_Click(object sender, EventArgs e)
         {
             dataGridStatistik.Dock = DockStyle.Fill;
-            dt = Spielsteuerung.StatistkGetPlayer();
+            dt = Spielsteuerung.StatistikGetPlayer();
             dataGridStatistik.DataSource = dt;
             dataGridStatistik.AutoGenerateColumns = true;
             dataGridStatistik.Columns["Elo"].ReadOnly = true;
