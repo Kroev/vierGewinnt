@@ -63,9 +63,9 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridStatistik.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridStatistik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridStatistik.Location = new System.Drawing.Point(175, 71);
+            this.dataGridStatistik.Location = new System.Drawing.Point(126, 71);
             this.dataGridStatistik.Name = "dataGridStatistik";
-            this.dataGridStatistik.Size = new System.Drawing.Size(382, 470);
+            this.dataGridStatistik.Size = new System.Drawing.Size(486, 470);
             this.dataGridStatistik.TabIndex = 2;
             // 
             // spielsteuerungBindingSource
